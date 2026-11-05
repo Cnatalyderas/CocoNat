@@ -1,0 +1,9 @@
+PORTAFOLIO NATALY — ACTUALIZACIÓN DECORATIVA
+
+Archivos principales:
+- portafolio_nataly_mejorado.html
+- style.css
+
+La medusa está dibujada desde cero con SVG inline y animada con CSS: campana, tentáculos traseros y delanteros se mueven a ritmos distintos. No necesita JavaScript ni PNG de medusa. Los cocos también son SVG dibujados desde cero, colocados sutilmente en el fondo y no junto al retrato.
+
+Coloca tu foto llamada imagen.jpg junto al HTML. Conserva los archivos de imagen que tu portafolio ya utiliza (por ejemplo mechnow.png y pb.png) en la misma estructura de carpetas que antes.

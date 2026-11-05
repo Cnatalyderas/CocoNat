@@ -1,815 +1,322 @@
 <!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Nataly Deras</title>
-
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Instrument Serif', 'serif'],
-                        mono: ['DM Mono', 'monospace']
-                    },
-
-                    colors: {
-                        ink: '#08080b',
-                        surface: '#101014',
-                        surface2: '#15151b',
-                        violet: '#9b7cff',
-                        lavender: '#c8baff',
-                        blue: '#6ea8ff',
-                        whiteSoft: '#eeeeF2',
-                        muted: '#85858f'
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body>
-
-    <div class="site-background" aria-hidden="true">
-        <div class="grid"></div>
-
-        <div class="fantasy-stars"></div>
-        <div class="fantasy-stars-small"></div>
-
-        <div class="glow glow-one"></div>
-        <div class="glow glow-two"></div>
-        <div class="glow glow-three"></div>
-
-        <div class="fantasy-fog one"></div>
-        <div class="fantasy-fog two"></div>
-        <div class="fantasy-fog three"></div>
-        <!-- Cocos pixel-inspired creados en SVG; decoran el fondo, nunca rodean el retrato. -->
-        <svg class="background-coconut coconut-bg-left" viewBox="0 0 120 105" aria-hidden="true" focusable="false">
-            <g transform="rotate(-18 60 52)">
-                <path d="M15 56 C15 29 34 10 59 10 C85 10 105 31 105 56 C105 78 85 94 60 94 C35 94 15 78 15 56Z" fill="#6d402d" stroke="#211b20" stroke-width="5"/>
-                <path d="M22 55 C22 33 38 17 59 17 C81 17 98 34 98 55 C98 73 81 87 60 87 C39 87 22 73 22 55Z" fill="#9a6040"/>
-                <path d="M39 25 L47 21 L45 31 L36 36Z M70 19 L78 25 L70 31 L64 24Z M29 52 L38 47 L39 58 L30 62Z M73 72 L84 65 L86 75 L76 81Z" fill="#b47a51" opacity=".62"/>
-                <path d="M46 30 C57 21 77 25 85 40 C93 54 85 72 72 79 C59 86 43 77 37 63 C31 49 35 38 46 30Z" fill="#f2eee1" stroke="#d2c9b8" stroke-width="4"/>
-                <path d="M49 35 C60 29 75 32 80 43 C86 54 79 67 69 73 C58 79 46 70 42 60 C38 50 41 40 49 35Z" fill="#fffdf6"/>
-                <path d="M50 37 C58 33 65 33 71 36" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".8"/>
-            </g>
-        </svg>
-        <svg class="background-coconut coconut-bg-right" viewBox="0 0 120 105" aria-hidden="true" focusable="false">
-            <g transform="rotate(16 60 52)">
-                <path d="M15 56 C15 29 34 10 59 10 C85 10 105 31 105 56 C105 78 85 94 60 94 C35 94 15 78 15 56Z" fill="#65402f" stroke="#211b20" stroke-width="5"/>
-                <path d="M22 55 C22 33 38 17 59 17 C81 17 98 34 98 55 C98 73 81 87 60 87 C39 87 22 73 22 55Z" fill="#8f563a"/>
-                <path d="M32 35 L42 26 L43 37 L34 43Z M76 23 L84 31 L77 37 L69 29Z M28 61 L38 55 L39 66 L31 70Z M65 73 L75 67 L80 76 L70 81Z" fill="#b1784e" opacity=".58"/>
-                <path d="M46 30 C57 21 77 25 85 40 C93 54 85 72 72 79 C59 86 43 77 37 63 C31 49 35 38 46 30Z" fill="#e8e4d9" stroke="#c7c0b4" stroke-width="4"/>
-                <path d="M49 35 C60 29 75 32 80 43 C86 54 79 67 69 73 C58 79 46 70 42 60 C38 50 41 40 49 35Z" fill="#fbfaf5"/>
-                <path d="M50 37 C58 33 65 33 71 36" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".8"/>
-            </g>
-        </svg>
-    </div>
-
-    <div id="particles" aria-hidden="true"></div>
-
-    <nav class="navbar">
-        <div class="nav-inner">
-            <a href="#home" class="logo">
-                <div class="logo-pixel"></div>
-                <span>nataly<span style="color:#78f4e7">.</span></span>
-            </a>
-
-            <div class="nav-links">
-                <a href="#about">
-                    Sobre mí
-                </a>
-
-                <a href="#projects">
-                    Proyectos
-                </a>
-
-                <a href="#skills">
-                    Habilidades
-                </a>
-
-                <a href="#certifications">
-                    Certificaciones
-                </a>
-
-                <a href="#diplomas">
-                    Experiencia
-                </a>
-
-                <a href="#contact" class="nav-contact">
-                    Contacto
-                </a>
-            </div>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Nataly Deras’s creative universe. Web development, interface design, and a curiosity that keeps growing.">
+        <meta name="theme-color" content="#080e13">
+        <title>Nataly Deras — Design & development</title>
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styles/home.css">
+        <link rel="stylesheet" href="styles/sections.css">
+        <script src="scripts/main.js" defer></script>
+        <script src="scripts/ambient.js" defer></script>
+        <script src="scripts/jellyfish.js" defer></script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+        <div class="site-background" aria-hidden="true">
+            <div class="background-halo"></div>
+            <svg class="background-coconut coconut-bg-left" viewBox="0 0 120 105" aria-hidden="true" focusable="false">
+                <g transform="rotate(-18 60 52)">
+                    <path d="M15 56 C15 29 34 10 59 10 C85 10 105 31 105 56 C105 78 85 94 60 94 C35 94 15 78 15 56Z" fill="#6d402d" stroke="#211b20" stroke-width="5"/>
+                    <path d="M22 55 C22 33 38 17 59 17 C81 17 98 34 98 55 C98 73 81 87 60 87 C39 87 22 73 22 55Z" fill="#9a6040"/>
+                    <path d="M39 25 L47 21 L45 31 L36 36Z M70 19 L78 25 L70 31 L64 24Z M29 52 L38 47 L39 58 L30 62Z M73 72 L84 65 L86 75 L76 81Z" fill="#b47a51" opacity=".62"/>
+                    <path d="M46 30 C57 21 77 25 85 40 C93 54 85 72 72 79 C59 86 43 77 37 63 C31 49 35 38 46 30Z" fill="#f2eee1" stroke="#d2c9b8" stroke-width="4"/>
+                    <path d="M49 35 C60 29 75 32 80 43 C86 54 79 67 69 73 C58 79 46 70 42 60 C38 50 41 40 49 35Z" fill="#fffdf6"/>
+                    <path d="M50 37 C58 33 65 33 71 36" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+                </g>
+            </svg>
+            <svg class="background-coconut coconut-bg-right" viewBox="0 0 120 105" aria-hidden="true" focusable="false">
+                <g transform="rotate(16 60 52)">
+                    <path d="M15 56 C15 29 34 10 59 10 C85 10 105 31 105 56 C105 78 85 94 60 94 C35 94 15 78 15 56Z" fill="#65402f" stroke="#211b20" stroke-width="5"/>
+                    <path d="M22 55 C22 33 38 17 59 17 C81 17 98 34 98 55 C98 73 81 87 60 87 C39 87 22 73 22 55Z" fill="#8f563a"/>
+                    <path d="M32 35 L42 26 L43 37 L34 43Z M76 23 L84 31 L77 37 L69 29Z M28 61 L38 55 L39 66 L31 70Z M65 73 L75 67 L80 76 L70 81Z" fill="#b1784e" opacity=".58"/>
+                    <path d="M46 30 C57 21 77 25 85 40 C93 54 85 72 72 79 C59 86 43 77 37 63 C31 49 35 38 46 30Z" fill="#e8e4d9" stroke="#c7c0b4" stroke-width="4"/>
+                    <path d="M49 35 C60 29 75 32 80 43 C86 54 79 67 69 73 C58 79 46 70 42 60 C38 50 41 40 49 35Z" fill="#fbfaf5"/>
+                    <path d="M50 37 C58 33 65 33 71 36" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+                </g>
+            </svg>
         </div>
-    </nav>
-
-    
-<main id="home">
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="eyebrow">
-                    <span class="status-dot"></span>
-                    PORTAFOLIO PERSONAL · DISEÑO Y DESARROLLO
+        <header class="navbar">
+            <nav class="nav-inner" aria-label="Main navigation">
+                <a href="#home" class="logo" aria-label="Nataly Deras, home">
+                    <span class="logo-portrait"><img src="assets/navbar.png" alt="" width="52" height="52"></span>
+                    <span class="logo-type">nataly<span class="logo-period">.</span></span>
+                    <span class="brand-spark" aria-hidden="true">✧</span>
+                </a>
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-links" aria-label="Open menu">
+                    <span></span><span></span>
+                </button>
+                <div class="nav-links" id="navigation-links">
+                    <a href="about.html">About me</a>
+                    <a href="#projects">Projects</a>
+                    <a href="about.html#skills">Skills</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="about.html#experience">Experience</a>
+                    <a href="#contact" class="nav-contact">Let’s talk <span aria-hidden="true">↗</span></a>
                 </div>
-
-                <h1 class="hero-title">
-                    <span class="hero-first-name">Nataly</span>
-                    <span class="gradient hero-last-name">Deras</span>
-                </h1>
-
-                <p class="hero-description">
-                    Soy estudiante de bachillerato, interesada en el desarrollo web, el diseño de interfaces y la creación de experiencias digitales claras y útiles.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="#projects" class="button button-primary">
-                        Ver proyectos <span>→</span>
-                    </a>
-                    <a href="#about" class="button button-outline">
-                        Conoce mi perfil
-                    </a>
+            </nav>
+            <span class="nav-progress" aria-hidden="true"></span>
+        </header>
+        <main id="main-content">
+            <section id="home" class="hero" aria-labelledby="hero-title">
+                <div class="hero-atmosphere" aria-hidden="true">
+                    <div class="hero-aura aura-teal"></div>
+                    <div class="hero-aura aura-violet"></div>
+                    <div class="light-beam beam-one"></div>
+                    <div class="light-beam beam-two"></div>
+                    <div class="cursor-light"></div>
+                    <canvas class="ambient-canvas"></canvas>
                 </div>
-            </div>
-
-            <div class="hero-visual" aria-label="Retrato de Nataly Deras">
-                <div class="hero-glow"></div>
-                <div class="hero-image-frame">
-                    <img src="imagen.jpg" alt="Nataly Deras" class="hero-image">
-                </div>
-
-                <!-- Una sola medusa SVG original: campana, brillo y tentáculos con movimiento independiente. -->
-                <div class="living-jellyfish" aria-hidden="true">
-                    <svg class="jellyfish-svg" viewBox="0 0 220 310" role="presentation" focusable="false">
-                        <defs>
-                            <linearGradient id="jellyBell" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0" stop-color="#e5ffff"/>
-                                <stop offset=".22" stop-color="#8df6f1"/>
-                                <stop offset=".52" stop-color="#48c9e5"/>
-                                <stop offset=".78" stop-color="#4d8be7"/>
-                                <stop offset="1" stop-color="#a78bfa"/>
-                            </linearGradient>
-                            <linearGradient id="jellyEdge" x1="0" y1="0" x2="1" y2="0">
-                                <stop offset="0" stop-color="#c6ffff"/>
-                                <stop offset=".48" stop-color="#56d8ee"/>
-                                <stop offset="1" stop-color="#b9a4ff"/>
-                            </linearGradient>
-                            <linearGradient id="jellyTentacle" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0" stop-color="#b5ffff"/>
-                                <stop offset=".48" stop-color="#48d7e8"/>
-                                <stop offset="1" stop-color="#8b8dff"/>
-                            </linearGradient>
-                            <radialGradient id="jellyGlow" cx="45%" cy="30%" r="75%">
-                                <stop offset="0" stop-color="#e9ffff" stop-opacity=".88"/>
-                                <stop offset=".55" stop-color="#8deaff" stop-opacity=".22"/>
-                                <stop offset="1" stop-color="#69b8ff" stop-opacity="0"/>
-                            </radialGradient>
-                            <filter id="softJellyGlow" x="-45%" y="-35%" width="190%" height="190%">
-                                <feGaussianBlur stdDeviation="5" result="blur"/>
-                                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                            </filter>
-                        </defs>
-                        <ellipse cx="110" cy="116" rx="72" ry="75" fill="#47d8ef" opacity=".10" filter="url(#softJellyGlow)"/>
-                        <g class="jelly-tentacle tentacle-back">
-                            <path d="M73 133 C66 166 48 185 54 217 C58 239 43 258 35 279"/>
-                            <path d="M91 139 C89 170 99 191 86 219 C77 239 84 260 73 286"/>
-                            <path d="M127 138 C137 167 126 190 143 216 C154 235 145 260 157 280"/>
-                            <path d="M145 130 C158 158 170 181 161 207 C153 232 174 252 185 269"/>
-                        </g>
-                        <g class="jelly-tentacle tentacle-front">
-                            <path d="M83 137 C72 164 78 184 66 205 C54 226 66 248 53 270"/>
-                            <path d="M103 142 C108 169 94 191 108 214 C121 235 109 258 119 291"/>
-                            <path d="M119 141 C128 166 145 184 134 207 C124 230 140 251 132 276"/>
-                            <path d="M137 135 C147 160 141 180 155 198 C171 219 158 240 173 256"/>
-                        </g>
-                        <g class="jelly-bell">
-                            <path d="M38 112 C39 67 70 37 110 34 C151 31 183 64 184 107 C185 124 170 136 151 139 C128 143 93 143 69 137 C48 133 36 126 38 112Z" fill="url(#jellyBell)" stroke="#c5ffff" stroke-width="3"/>
-                            <path d="M43 109 C49 76 76 48 108 45 C141 42 169 67 177 100 C161 89 147 91 133 100 C115 111 94 107 77 101 C62 96 51 103 43 109Z" fill="url(#jellyGlow)"/>
-                            <path d="M42 113 C59 127 75 123 92 129 C115 137 143 133 164 125 C174 121 180 115 183 108" fill="none" stroke="url(#jellyEdge)" stroke-width="7" stroke-linecap="round"/>
-                            <path d="M58 91 C70 68 90 56 111 57" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity=".72"/>
-                            <path d="M63 103 C73 94 83 93 92 97" fill="none" stroke="#e9ffff" stroke-width="3" stroke-linecap="round" opacity=".68"/>
-                            <path d="M132 60 C151 68 164 83 168 98" fill="none" stroke="#c4faff" stroke-width="4" stroke-linecap="round" opacity=".55"/>
-                            <path d="M76 132 C82 143 88 148 96 150 M111 138 C113 147 117 151 123 153 M144 134 C142 144 139 148 135 151" fill="none" stroke="#74e6f2" stroke-width="5" stroke-linecap="round"/>
-                            <ellipse cx="110" cy="111" rx="47" ry="20" fill="#b4ffff" opacity=".12"/>
-                        </g>
-                        <g class="jelly-specks" fill="#d9ffff">
-                            <circle cx="31" cy="164" r="2.5"/><circle cx="187" cy="177" r="2"/><circle cx="48" cy="203" r="1.8"/><circle cx="169" cy="221" r="2.2"/>
-                        </g>
-                    </svg>
-                </div>
-                <div class="hero-floating-label">
-                    <span class="label-sparkle">✧</span>
-                    <span>Creative soul</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="marquee">
-        <div class="marquee-track">
-            <div class="marquee-item">
-                CREATIVE <b>✦</b>
-                UI / UX <b>✦</b>
-                FRONTEND <b>✦</b>
-                DIGITAL EXPERIENCES <b>✦</b>
-            </div>
-            <div class="marquee-item" aria-hidden="true">
-                CREATIVE <b>✦</b>
-                UI / UX <b>✦</b>
-                FRONTEND <b>✦</b>
-                DIGITAL EXPERIENCES <b>✦</b>
-            </div>
-        </div>
-    </div>
-</main>
-
-        <section id="about" class="section">
-            <div class="section-header">
-                <div>
-                    <div class="section-number">
-                        01 / PERFIL
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A LITTLE CREATIVE UNIVERSE <span class="eyebrow-line" aria-hidden="true"></span></div>
+                        <p class="hero-greeting">Hi, I’m</p>
+                        <h1 class="hero-title" id="hero-title"><span class="hero-first-name">Nataly</span><span class="hero-last-name">Deras<span class="name-period">.</span></span></h1>
+                        <div class="hero-intro">
+                            <span class="intro-marker" aria-hidden="true">✳</span>
+                            <p class="hero-description">I’m a high school student interested in web development, interface design, and creating clear, useful digital experiences.</p>
+                        </div>
+                        <div class="hero-actions">
+                            <a href="#projects" class="button button-primary">Explore my projects <span class="button-arrow" aria-hidden="true">↗</span></a>
+                            <a href="about.html" class="button button-text">About me <span aria-hidden="true">↗</span></a>
+                        </div>
                     </div>
-
-                    <h2 class="section-title">
-                        SOBRE<br>
-                        MÍ
-                    </h2>
+                    <div class="hero-visual">
+                        <span class="visual-kicker"><span aria-hidden="true">✦</span> BETWEEN PIXELS AND POSSIBILITIES</span>
+                        <div class="portrait-orbit orbit-outer" aria-hidden="true"></div>
+                        <div class="portrait-orbit orbit-inner" aria-hidden="true"></div>
+                        <div class="portrait-portal">
+                            <div class="portal-texture" aria-hidden="true"></div>
+                            <div class="portal-halo" aria-hidden="true"></div>
+                            <span class="portal-cross cross-one" aria-hidden="true">+</span>
+                            <span class="portal-cross cross-two" aria-hidden="true">+</span>
+                            <img class="hero-portrait" src="assets/navbar.png" alt="Pixel art illustration of Nataly" width="480" height="480" fetchpriority="high">
+                            <div class="portrait-caption"><span class="status-dot" aria-hidden="true"></span> CURIOUS BY NATURE <span aria-hidden="true">✧</span></div>
+                        </div>
+                        <span class="orbit-spark spark-one" aria-hidden="true"></span>
+                        <span class="orbit-spark spark-two" aria-hidden="true"></span>
+                        <span class="tiny-star" aria-hidden="true">✧</span>
+                        <div class="living-jellyfish" role="img" aria-label="Glowing pixel art jellyfish with an animated bell and tentacles">
+                            <div class="jellyfish-halo" aria-hidden="true"></div>
+                            <canvas class="jellyfish-canvas" width="112" height="156" aria-hidden="true"></canvas>
+                        </div>
+                        <div class="jellyfish-note" aria-hidden="true"><span class="note-line"></span>a creative soul<br><em>always in motion.</em></div>
+                        <span class="visual-edition" aria-hidden="true">N / D <span>✦</span> 2026</span>
+                    </div>
                 </div>
-
-                <p class="section-description">
-                    Busco aprender, crecer y aportar valor a través de cada experiencia.
-                </p>
+                <div class="hero-bottom">
+                    <a class="scroll-cue" href="#projects"><span class="scroll-icon" aria-hidden="true">↓</span> KEEP EXPLORING</a>
+                    <span class="hero-manifesto">Learn. Create. <em>Imagine again.</em></span>
+                </div>
+            </section>
+            <div class="marquee" aria-label="Creativity, interface design, development, and digital experiences">
+                <div class="marquee-track" aria-hidden="true">
+                    <div class="marquee-item"><span>CREATIVE SOUL</span><b aria-hidden="true">✳</b><span>UI / UX</span><b aria-hidden="true">✳</b><span>FRONTEND</span><b aria-hidden="true">✳</b><span class="marquee-accent">DIGITAL EXPERIENCES</span><b aria-hidden="true">✳</b><span>ALWAYS LEARNING</span><b aria-hidden="true">✳</b></div>
+                    <div class="marquee-item"><span>CREATIVE SOUL</span><b aria-hidden="true">✳</b><span>UI / UX</span><b aria-hidden="true">✳</b><span>FRONTEND</span><b aria-hidden="true">✳</b><span class="marquee-accent">DIGITAL EXPERIENCES</span><b aria-hidden="true">✳</b><span>ALWAYS LEARNING</span><b aria-hidden="true">✳</b></div>
+                </div>
             </div>
-
-            <div class="about-grid">
-
-                <div>
-                    <p class="about-large">
-                        <span>
-                           Aprender, crear y crecer con cada proyecto.
-                        </span>
+            <section id="projects" class="section">
+                <div class="section-header">
+                    <div>
+                        <div class="section-number">
+                            01 / PROJECTS
+                        </div>
+                        <h2 class="section-title">
+                            SELECTED<br>
+                            PROJECTS
+                        </h2>
+                    </div>
+                    <p class="section-description">
+                        A selection of projects where design and development come together.
                     </p>
                 </div>
-
-                <div>
-                    <p class="about-text">
-                        Considero que cada experiencia representa una oportunidad para aprender y seguir creciendo. En
-                        esta etapa de mi desarrollo personal, busco fortalecer mis habilidades y adquirir nuevos
-                        conocimientos que me permitan seguir avanzando. Me caracterizan la responsabilidad, la
-                        organización y la capacidad de adaptación, cualidades que me ayudan a enfrentar nuevos desafíos
-                        con compromiso y disposición para aportar valor en cada proyecto en el que participo.
+                <div class="projects">
+                    <article class="project">
+                        <div class="project-preview">
+                            <div class="project-bg project-one"></div>
+                            <div class="project-ui">
+                                <div class="mini-nav">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="mini-title">
+                                    <div class="project-wordmark mechnow-wordmark"><small>CONNECTING SOLUTIONS</small><strong>mechnow<span>↗</span></strong><span class="wordmark-detail">Help on the road.</span></div>
+                                </div>
+                            </div>
+                            <div class="pixel-corner tl"></div><div class="pixel-corner br"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="tag">
+                                01 — WEB DEVELOPMENT
+                            </div>
+                            <h3>
+                                MECHNOW
+                            </h3>
+                            <p>
+                                A hackathon project aimed at connecting stranded drivers with mechanics who can help them quickly. I contributed to the initial idea and helped design the proposal.
+                            </p>
+                            <div class="project-meta">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JAVASCRIPT</span>
+                                <span>UI DESIGN</span>
+                            </div>
+                            <a href="#contact" class="view-project">
+                                Explore project ↗
+                            </a>
+                        </div>
+                    </article>
+                    <article class="project">
+                        <div class="project-preview">
+                            <div class="project-bg project-two"></div>
+                            <div class="project-ui">
+                                <div class="mini-nav">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="mini-title">
+                                    <div class="project-wordmark plant-wordmark"><small>A SPACE TO GROW</small><strong>plant<span>bud.</span></strong><span class="wordmark-detail">Grow something beautiful.</span></div>
+                                </div>
+                            </div>
+                            <div class="pixel-corner tl"></div>
+                            <div class="pixel-corner br"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="tag tag-aqua">
+                                02 — WEB PLATFORM
+                            </div>
+                            <h3>
+                                PLANT BUD
+                            </h3>
+                            <p>
+                                A plant catalog and care platform. I contributed ideas, helped organize the structure and visual design, and supported the definition of categories and the user experience.
+                            </p>
+                            <div class="project-meta">
+                                <span>ADONISJS</span>
+                                <span>EDGE</span>
+                                <span>TAILWIND</span>
+                                <span>TYPESCRIPT</span>
+                            </div>
+                            <a href="#contact" class="view-project">
+                                Explore project ↗
+                            </a>
+                        </div>
+                    </article>
+                    <article class="project">
+                        <div class="project-preview">
+                            <div class="project-bg project-three"></div>
+                            <div class="project-ui">
+                                <div class="mini-nav">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="mini-title service-preview-title">
+                                    <span>Student</span><strong>Service</strong>
+                                </div>
+                            </div>
+                            <div class="pixel-corner tl"></div>
+                            <div class="pixel-corner br"></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="tag tag-lavender">
+                                03 — SCHOOL PARTICIPATION
+                            </div>
+                            <h3>STUDENT SERVICE</h3>
+                            <p>
+                                Support for school activities, meetings, celebrations, and teachers, along with participation in activities representing the school.
+                            </p>
+                            <div class="project-meta">
+                                <span>RESPONSIBILITY</span>
+                                <span>TEAMWORK</span>
+                                <span>ADAPTABILITY</span>
+                            </div>
+                            <a href="#contact" class="view-project">
+                                Explore experience ↗
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section id="certifications" class="section credentials-section">
+                <div class="section-header">
+                    <div>
+                        <div class="section-number">
+                            02 / CERTIFICATIONS
+                        </div>
+                        <h2 class="section-title">
+                            CERTIFICATIONS<br>
+                            & EDUCATION
+                        </h2>
+                    </div>
+                    <p class="section-description">
+                        A space for certifications, courses, and learning that complement my education.
                     </p>
                 </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-
-            <div class="section-header">
-
-                <div>
-                    <div class="section-number">
-                        02 / PROYECTOS
-                    </div>
-
-                    <h2 class="section-title">
-                        PROYECTOS<br>
-                        DESTACADOS
-                    </h2>
+                <div class="credentials-grid">
+                    <article class="credential-card credential-green">
+                        <div class="credential-top"><span class="credential-index">01</span><span class="credential-mark">✦</span></div>
+                        <div class="credential-body"><span class="credential-label">MICROSOFT OFFICE SPECIALIST</span><h3>Excel Expert</h3><p>Microsoft Office Specialist certification with a score of 735 points.</p></div>
+                        <div class="credential-footer"><span>RESULT / PROGRAM</span><span>735 points</span></div>
+                    </article>
+                    <article class="credential-card credential-blue">
+                        <div class="credential-top"><span class="credential-index">02</span><span class="credential-mark">◇</span></div>
+                        <div class="credential-body"><span class="credential-label">EXCEL</span><h3>Excel certification</h3><p>Excel assessment with a score of 900 points.</p></div>
+                        <div class="credential-footer"><span>RESULT / PROGRAM</span><span>900 points</span></div>
+                    </article>
+                    <article class="credential-card credential-violet">
+                        <div class="credential-top"><span class="credential-index">03</span><span class="credential-mark">✧</span></div>
+                        <div class="credential-body"><span class="credential-label">ENGLISH</span><h3>TOEIC</h3><p>An approximate score of 600 points on the TOEIC assessment.</p></div>
+                        <div class="credential-footer"><span>RESULT / PROGRAM</span><span>≈ 600 points</span></div>
+                    </article>
+                    <article class="credential-card credential-green">
+                        <div class="credential-top"><span class="credential-index">04</span><span class="credential-mark">✦</span></div>
+                        <div class="credential-body"><span class="credential-label">ADDITIONAL EDUCATION</span><h3>CREO El Salvador</h3><p>Additional education as part of my academic journey.</p></div>
+                        <div class="credential-footer"><span>RESULT / PROGRAM</span><span>CREO El Salvador</span></div>
+                    </article>
                 </div>
-
-                <p class="section-description">
-                    Una selección de proyectos donde
-                    diseño y desarrollo se mezclan.
-                </p>
-            </div>
-
-            <div class="projects">
-                <article class="project">
-                    <div class="project-preview">
-                        <div class="project-bg project-one"></div>
-                        <div class="project-ui">
-
-                            <div class="mini-nav">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-
-                            <div class="mini-title">
-                                <img src="./mechnow.png" alt="Mechnow" class="mechnow-img">
-                            </div>
+            </section>
+            <section id="contact" class="section">
+                <div class="contact contact-panel">
+                    <div class="contact-copy">
+                        <div class="section-number">
+                            03 / CONTACT
                         </div>
-
-                        <div class="pixel-corner tl"></div><div class="pixel-corner br"></div>
-                    </div>
-
-                    <div class="project-info">
-                        <div class="tag">
-                            01 — DESARROLLO WEB
-                        </div>
-
-                        <h3>
-                            MECHNOW
-                        </h3>
-
+                        <h2>
+                            Let’s talk.
+                            <br>
+                            <span>Let’s connect.</span>
+                        </h2>
                         <p>
-                            Proyecto de hackatón orientado a conectar a conductores que quedan varados con mecánicos que puedan ayudarles de forma rápida. Participé en la idea inicial y apoyé en el diseño de la propuesta.
+                            If you’d like to learn more about my projects, have a conversation, or simply connect, you can reach me through the following channels.
                         </p>
-
-                        <div class="project-meta">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JAVASCRIPT</span>
-                            <span>UI DESIGN</span>
-                        </div>
-
-                        <a href="#contact" class="view-project">
-                            Conocer proyecto ↗
+                    </div>
+                    <div class="contact-links">
+                        <a href="mailto:nataly.deras97@gmail.com" class="contact-link">
+                            <span>EMAIL</span>
+                            <span>nataly.deras97@gmail.com →</span>
+                        </a>
+                        <a href="https://github.com/Cnatalyderas" class="contact-link" target="_blank" rel="noopener noreferrer">
+                            <span>GITHUB</span>
+                            <span>View projects →</span>
                         </a>
                     </div>
-                </article>
-
-                <article class="project">
-                    <div class="project-preview">
-                        <div class="project-bg project-two"></div>
-                        <div class="project-ui">
-
-                            <div class="mini-nav">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <div class="mini-title">
-                                <img src="./pb.png" alt="Plant Bud" class="plant-bud-img">
-                            </div>
-                        </div>
-
-                        <div class="pixel-corner tl"></div>
-                        <div class="pixel-corner br"></div>
-                    </div>
-
-                    <div class="project-info">
-                        <div class="tag" style="color:#78f4e7">
-                            02 — PLATAFORMA WEB
-                        </div>
-
-                        <h3>
-                            PLANT BUD
-                        </h3>
-
-                        <p>
-                            Plataforma de catálogo y cuidado de plantas. Colaboré con ideas, organización de la estructura y diseño visual, además de apoyar en la definición de categorías y experiencia de usuario.
-                        </p>
-
-                        <div class="project-meta">
-                            <span>ADONISJS</span>
-                            <span>EDGE</span>
-                            <span>TAILWIND</span>
-                            <span>TYPESCRIPT</span>
-                        </div>
-
-                        <a href="#contact" class="view-project">
-                            Conocer proyecto ↗
-                        </a>
-                    </div>
-                </article>
-
-                <article class="project">
-                    <div class="project-preview">
-                        <div class="project-bg project-three"></div>
-
-                        <div class="project-ui">
-                            <div class="mini-nav">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-
-                            <div class="mini-title service-preview-title">
-                                <span>Servicio</span><strong>Estudiantil</strong>
-                            </div>
-                        </div>
-
-                        <div class="pixel-corner tl"></div>
-                        <div class="pixel-corner br"></div>
-                    </div>
-
-                    <div class="project-info">
-                        <div class="tag" style="color:#c8baff">
-                            03 — PARTICIPACIÓN INSTITUCIONAL
-                        </div>
-
-                        <h3>SERVICIO ESTUDIANTIL</h3>
-                        <p>
-                            Apoyo en actividades escolares, reuniones, festividades y asistencia a docentes, además de participación en actividades donde represento a la institución.
-                        </p>
-
-                        <div class="project-meta">
-                            <span>RESPONSABILIDAD</span>
-                            <span>TRABAJO EN EQUIPO</span>
-                            <span>ADAPTABILIDAD</span>
-                        </div>
-
-                        <a href="#contact" class="view-project">
-                            Conocer experiencia ↗
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-
-        <section id="skills" class="section">
-            <div class="section-header">
-
-                <div>
-                    <div class="section-number">
-                        03 / HABILIDADES
-                    </div>
-
-                    <h2 class="section-title">
-                        MIS<br>
-                        HABILIDADES
-                    </h2>
                 </div>
-
-                <p class="section-description">
-                    Competencias personales y herramientas que aporto a los proyectos.
-                </p>
-
-            </div>
-
-            <div class="skill-grid">
-                <article class="skill-card">
-                    <span class="skill-number">01</span>
-                    <div class="skill-icon" aria-hidden="true">↗</div>
-                    <h4>Comunicación efectiva</h4>
-                    <p>Expresar ideas con claridad, escuchar y colaborar con otras personas.</p>
-                </article>
-                <article class="skill-card">
-                    <span class="skill-number">02</span>
-                    <div class="skill-icon" aria-hidden="true">⌕</div>
-                    <h4>Comprensión y análisis</h4>
-                    <p>Analizar necesidades, organizar información y buscar soluciones.</p>
-                </article>
-                <article class="skill-card">
-                    <span class="skill-number">03</span>
-                    <div class="skill-icon" aria-hidden="true">▦</div>
-                    <h4>Organización y planificación</h4>
-                    <p>Ordenar tareas y estructurar el trabajo para avanzar con objetivos claros.</p>
-                </article>
-                <article class="skill-card">
-                    <span class="skill-number">04</span>
-                    <div class="skill-icon" aria-hidden="true">✧</div>
-                    <h4>Pensamiento visual y espacial</h4>
-                    <p>Dar forma a ideas mediante composición, estructura y diseño de interfaces.</p>
-                </article>
-                <article class="skill-card">
-                    <span class="skill-number">05</span>
-                    <div class="skill-icon" aria-hidden="true">↻</div>
-                    <h4>Adaptabilidad</h4>
-                    <p>Aprender rápidamente y responder con disposición ante nuevos retos.</p>
-                </article>
-                <article class="skill-card">
-                    <span class="skill-number">06</span>
-                    <div class="skill-icon" aria-hidden="true">◎</div>
-                    <h4>Trabajo en equipo</h4>
-                    <p>Compartir ideas y colaborar para construir soluciones en conjunto.</p>
-                </article>
-                <article class="skill-card">
-                    <span class="skill-number">07</span>
-                    <div class="skill-icon" aria-hidden="true">＋</div>
-                    <h4>Aprendizaje continuo</h4>
-                    <p>Fortalecer mis conocimientos y explorar nuevas herramientas.</p>
-                </article>
-                <article class="skill-card">
-                    <span class="skill-number">08</span>
-                    <div class="skill-icon" aria-hidden="true">✦</div>
-                    <h4>Paciencia y perseverancia</h4>
-                    <p>Mantener el compromiso durante el proceso de aprendizaje y resolución de problemas.</p>
-                </article>
-            </div>
-            <div class="toolkit" aria-label="Herramientas y tecnologías">
-                <span>HERRAMIENTAS</span>
-                <div class="toolkit-tags">
-                    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Tailwind CSS</span><span>Figma</span><span>GitHub</span><span>Visual Studio Code</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="certifications" class="section credentials-section">
-            <div class="section-header">
-                <div>
-
-                    <div class="section-number">
-                        04 / CERTIFICACIONES
-                    </div>
-
-                    <h2 class="section-title">
-                        CERTIFICACIONES<br>
-                        Y FORMACIÓN
-                    </h2>
-
-                </div>
-
-                <p class="section-description">
-                    Un espacio para reunir certificaciones,
-                    cursos y aprendizajes que complementan
-                    mi formación.
-                </p>
-            </div>
-
-            <div class="credentials-grid">
-                <article class="credential-card credential-green">
-                    <div class="credential-top"><span class="credential-index">01</span><span class="credential-mark">✦</span></div>
-                    <div class="credential-body"><span class="credential-label">MICROSOFT OFFICE SPECIALIST</span><h3>Excel Expert</h3><p>Certificación de Microsoft Office Specialist con resultado de 735 puntos.</p></div>
-                    <div class="credential-footer"><span>RESULTADO / PROGRAMA</span><span>735 puntos</span></div>
-                </article>
-                <article class="credential-card credential-blue">
-                    <div class="credential-top"><span class="credential-index">02</span><span class="credential-mark">◇</span></div>
-                    <div class="credential-body"><span class="credential-label">EXCEL</span><h3>Certificación en Excel</h3><p>Evaluación de Excel con resultado de 900 puntos.</p></div>
-                    <div class="credential-footer"><span>RESULTADO / PROGRAMA</span><span>900 puntos</span></div>
-                </article>
-                <article class="credential-card credential-violet">
-                    <div class="credential-top"><span class="credential-index">03</span><span class="credential-mark">✧</span></div>
-                    <div class="credential-body"><span class="credential-label">INGLÉS</span><h3>TOEIC</h3><p>Resultado aproximado de 600 puntos en la evaluación TOEIC.</p></div>
-                    <div class="credential-footer"><span>RESULTADO / PROGRAMA</span><span>≈ 600 puntos</span></div>
-                </article>
-                <article class="credential-card credential-green">
-                    <div class="credential-top"><span class="credential-index">04</span><span class="credential-mark">✦</span></div>
-                    <div class="credential-body"><span class="credential-label">FORMACIÓN COMPLEMENTARIA</span><h3>CREO El Salvador</h3><p>Formación complementaria dentro de mi recorrido académico.</p></div>
-                    <div class="credential-footer"><span>RESULTADO / PROGRAMA</span><span>CREO El Salvador</span></div>
-                </article>
-            </div>
-        </section>
-
-        <section id="diplomas" class="section credentials-section">
-            <div class="section-header">
-                <div>
-
-                    <div class="section-number">
-                        05 / EXPERIENCIA
-                    </div>
-
-                    <h2 class="section-title">
-                        EXPERIENCIA<br>
-                        Y PARTICIPACIÓN
-                    </h2>
-
-                </div>
-
-                <p class="section-description">
-                    Experiencias académicas, de servicio y atención al cliente que han fortalecido mi responsabilidad y capacidad de adaptación.
-                </p>
-            </div>
-
-            <div class="diploma-list">
-                <article class="diploma-card">
-                    <div class="diploma-symbol">✦</div>
-                    <div class="diploma-content"><span>01 / SERVICIO ESTUDIANTIL</span><h3>Protocolo y apoyo institucional</h3><p>Colaboro en festividades, reuniones de padres, actividades de limpieza y asistencia a docentes. También participo en actividades externas representando a la institución.</p></div>
-                </article>
-                <article class="diploma-card">
-                    <div class="diploma-symbol">◇</div>
-                    <div class="diploma-content"><span>02 / FORMACIÓN</span><h3>Programa Empresarial Supérate</h3><p>Becaria de tercer año, fortaleciendo mi formación académica y mis habilidades personales y profesionales.</p></div>
-                </article>
-                <article class="diploma-card">
-                    <div class="diploma-symbol">✧</div>
-                    <div class="diploma-content"><span>03 / EXPERIENCIA LABORAL</span><h3>Atención al cliente · El Mesías</h3><p>Experiencia como mesera durante un mes. Aprendí rápidamente las tareas del puesto y desarrollé habilidades de atención y trabajo en equipo.</p></div>
-                </article>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="contact contact-panel">
-                <div class="contact-copy">
-                    <div class="section-number">
-                        06 / CONTACTO
-                    </div>
-
-                    <h2>
-                        ¿Hablamos?
-                        <br>
-                        <span>Conectemos.</span>
-                    </h2>
-
-                    <p>
-                        Si quieres conocer más sobre mis proyectos,
-                        conversar o simplemente conectar, puedes
-                        encontrarme a través de los siguientes medios.
-                    </p>
-                </div>
-
-                <div class="contact-links">
-                    <a href="mailto:nataly.deras97@gmail.com" class="contact-link">
-                        <span>CORREO</span>
-                        <span>nataly.deras97@gmail.com →</span>
-                    </a>
-
-                    <a href="https://github.com/Cnatalyderas" class="contact-link" target="_blank" rel="noopener noreferrer">
-                        <span>GITHUB</span>
-                        <span>Ver proyectos →</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <span>
-            © 2026 NATALY
-        </span>
-        <span>
-            DESIGNED + CODED WITH ✦
-        </span>
-        <span>
-            04 / 04
-        </span>
-    </footer>
-
-    <script>
-        const revealElements =
-            document.querySelectorAll(
-                ".section, .project, .skill-card"
-            );
-
-        revealElements.forEach(element => {
-
-            element.style.opacity = "0";
-
-            element.style.transform =
-                "translateY(30px)";
-
-            element.style.transition =
-                "opacity .8s ease, transform .8s ease";
-
-        });
-
-        const observer =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            entry.target.style.opacity =
-                                "1";
-
-                            entry.target.style.transform =
-                                "translateY(0)";
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: .12
-                }
-            );
-
-        revealElements.forEach(element => {
-
-            observer.observe(element);
-
-        });
-
-        const sections =
-            document.querySelectorAll("section[id]");
-
-        const navItems =
-            document.querySelectorAll(
-                ".nav-links a"
-            );
-
-        const navObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            navItems.forEach(
-                                item =>
-                                    item.style.color =
-                                    ""
-                            );
-
-                            const current =
-                                document.querySelector(
-                                    `.nav-links a[href="#${entry.target.id}"]`
-                                );
-
-                            if (current) {
-
-                                current.style.color =
-                                    "#ffffff";
-
-                            }
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: .45
-                }
-            );
-
-        sections.forEach(section => {
-
-            navObserver.observe(section);
-
-        });
-
-        let secretCode = "";
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                secretCode +=
-                    event.key.toLowerCase();
-
-                if (
-                    secretCode.includes(
-                        "pixel"
-                    )
-                ) {
-
-                    document.body.style
-                        .filter =
-                        "hue-rotate(35deg)";
-
-                    setTimeout(() => {
-
-                        document.body.style
-                            .filter = "";
-
-                    }, 1500);
-
-                    secretCode = "";
-
-                }
-
-                if (
-                    secretCode.length > 20
-                ) {
-
-                    secretCode =
-                        secretCode.slice(-10);
-
-                }
-
-            }
-        );
-
-    </script>
-
-    <script>
-        const particleLayer = document.getElementById("particles");
-
-        if (particleLayer) {
-            for (let i = 0; i < 16; i++) {
-                const particle = document.createElement("span");
-                particle.className = "particle";
-
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.animationDuration =
-                    `${8 + Math.random() * 15}s`;
-                particle.style.animationDelay =
-                    `${-Math.random() * 20}s`;
-                particle.style.transform =
-                    `scale(${0.4 + Math.random()})`;
-
-                particleLayer.appendChild(particle);
-            }
-        }
-        </script>
-</body>
-
+            </section>
+        </main>
+        <footer>
+            <a href="#home" class="footer-signature">nataly<span>.</span></a>
+            <span>© 2026 NATALY DERAS</span>
+            <span>MADE WITH CURIOSITY & ✦</span>
+            <a href="#home" class="back-to-top">Back to top ↑</a>
+        </footer>
+    </body>
 </html>

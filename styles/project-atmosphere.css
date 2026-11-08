@@ -1,0 +1,116 @@
+/* A moonlit little world behind the project collection. No effects cover card content. */
+.projects-section::before { display: none; }
+.projects-enchantment {
+    position: absolute;
+    z-index: -1;
+    inset: -30px 0 0;
+    overflow: hidden;
+    contain: paint;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 3% 25%, #1747813b, transparent 42%),
+                radial-gradient(ellipse at 96% 48%, #24479745, transparent 44%),
+                radial-gradient(ellipse at 48% 93%, #125a823d, transparent 45%);
+    mask-image: linear-gradient(transparent, #000 6%, #000 94%, transparent);
+    -webkit-mask-image: linear-gradient(transparent, #000 6%, #000 94%, transparent);
+}
+.magic-aurora { position: absolute; width: 105%; height: 700px; border-radius: 50%; opacity: .7; animation: magic-aurora-drift 22s ease-in-out infinite alternate; }
+.magic-aurora--blue { top: 7%; left: -45%; background: radial-gradient(ellipse, #397fe438, #1f57991a 40%, transparent 70%); }
+.magic-aurora--violet { top: 34%; right: -51%; height: 850px; background: radial-gradient(ellipse, #7775e52b, #2469ae1a 38%, transparent 70%); animation-delay: -8s; animation-duration: 27s; }
+.magic-aurora--aqua { bottom: 0; left: -8%; width: 120%; height: 620px; background: radial-gradient(ellipse, #40add731, #267dbd1a 42%, transparent 72%); animation-delay: -15s; animation-duration: 25s; }
+.magic-lightshaft { position: absolute; top: -5%; width: 24%; height: 102%; background: linear-gradient(90deg, transparent, #a3d9ff09, #9fceff03 60%, transparent); mask-image: linear-gradient(transparent, #000 10%, transparent 85%); transform-origin: 50% 0; animation: magic-shaft-sway 19s ease-in-out infinite alternate; }
+.magic-lightshaft--one { left: 10%; rotate: 19deg; }
+.magic-lightshaft--two { right: -5%; width: 15%; rotate: 27deg; animation-delay: -10s; }
+.projects-magic-canvas, .magic-starfield { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.magic-starfield { opacity: .8; }
+.magic-star { position: absolute; left: var(--star-x); top: var(--star-y); width: var(--star-size); height: var(--star-size); background: #c7ecff; clip-path: polygon(50% 0, 59% 40%, 100% 50%, 59% 60%, 50% 100%, 41% 60%, 0 50%, 41% 40%); animation: magic-star-breathe 5.5s ease-in-out infinite; animation-delay: var(--star-delay); }
+.projects-enchantment * { animation-play-state: paused; }
+.projects-section.is-awake .projects-enchantment * { animation-play-state: running; }
+@keyframes magic-aurora-drift { to { transform: translate(5%, -25px) scale(1.08, 1.03); opacity: .95; } }
+@keyframes magic-shaft-sway { to { transform: translateX(25px) rotate(4deg); opacity: .45; } }
+@keyframes magic-star-breathe { 50% { opacity: .25; transform: scale(.65) rotate(15deg); } }
+
+/* A luminous clearing beneath the cards gives the creatures their own space. */
+.projects-tide-scene { height: 280px; margin: 12px 0 0; isolation: isolate; }
+.tide-moon-halo { position: absolute; z-index: -1; top: -15px; right: 6%; width: 440px; max-width: 75%; height: 265px; border-radius: 50%; background: radial-gradient(ellipse at 52% 40%, #89d3ff24, #2c74bb16 35%, #6580d809 53%, transparent 72%); animation: tide-halo-breathe 8s ease-in-out infinite; }
+.tide-water-glow { position: absolute; z-index: -1; left: 5%; right: 5%; bottom: 2px; height: 120px; border-radius: 50%; background: radial-gradient(ellipse, #75ccf91c, #4d96ca09 45%, transparent 72%); transform: scaleY(.55); }
+.tide-current { top: 115px; height: 135px; opacity: .9; }
+.tide-current path { stroke-opacity: .28; }
+.tide-current path + path { stroke-opacity: .13; }
+.tide-current circle { fill-opacity: .85; }
+.tide-pearl-moon { position: absolute; left: 15%; top: 99px; width: 65px; height: 65px; border: 1px solid #d3f1ff4d; border-radius: 50%; background: radial-gradient(circle at 33% 28%, #d1efff80, #88c3f438 43%, #658acc18 72%); box-shadow: 0 0 0 10px #acdfff03, 0 0 0 11px #acdfff10, 0 0 38px #9bd9ff12; }
+.tide-pearl-moon::before { content: ''; position: absolute; inset: -25px -39px; border: 1px solid #b5dfff1a; border-radius: 50%; transform: rotate(-25deg) scaleY(.45); }
+.tide-pearl-moon::after { content: ''; position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #caecff; left: -12px; top: 42px; box-shadow: 0 0 8px #9dd9ff80; }
+.tide-jelly { right: 17%; top: 0; width: 174px; height: 247px; animation: tide-jelly-swim 9.6s ease-in-out infinite; }
+.tide-jelly-bell { transform-origin: 50% 100%; animation: tide-bell-pulse 4.8s ease-in-out infinite; }
+.tide-jelly-ribbons { animation: none; }
+.tide-jelly-tendril { transform-box: fill-box; transform-origin: 50% 0; animation: tide-tendril-wave 4.8s ease-in-out infinite; }
+.tide-jelly-tendril--1 { animation-delay: -.6s; }
+.tide-jelly-tendril--2 { animation-delay: -1.1s; animation-direction: reverse; }
+.tide-jelly-tendril--3 { animation-delay: -2s; }
+.tide-jelly-tendril--4 { animation-delay: -2.7s; animation-direction: reverse; }
+.tide-jelly-tendril--5 { animation-delay: -.35s; }
+.tide-jelly-tendril--6 { animation-delay: -1.7s; animation-direction: reverse; }
+.tide-star--one { left: 8%; top: 65px; font-size: 28px; }
+.tide-star--two { left: 45%; top: 188px; font-size: 15px; }
+.tide-star--three { right: 7%; top: 31px; font-size: 22px; }
+.tide-butterfly { position: absolute; width: 68px; height: 56px; overflow: visible; animation: tide-butterfly-drift 10s ease-in-out infinite; }
+.tide-butterfly--near { left: 29%; top: 35px; rotate: -17deg; }
+.tide-butterfly--far { right: 4%; top: 160px; width: 46px; height: 38px; rotate: 19deg; opacity: .7; animation-delay: -6s; animation-duration: 13s; }
+.butterfly-wing { transform-box: fill-box; animation: tide-wing-flutter 2.4s ease-in-out infinite; }
+.butterfly-wing--left { transform-origin: 100% 50%; }
+.butterfly-wing--right { transform-origin: 0 50%; }
+.tide-butterfly--far .butterfly-wing { animation-delay: -.8s; }
+.projects-tide-scene::before, .projects-tide-scene::after { content: ''; position: absolute; width: 7px; height: 7px; border: 1px solid #b6e9ff70; border-radius: 50%; animation: tide-bubble-rise 9s ease-in-out infinite; }
+.projects-tide-scene::before { left: 56%; top: 145px; }
+.projects-tide-scene::after { right: 12%; top: 123px; width: 4px; height: 4px; animation-delay: -4s; }
+@keyframes tide-halo-breathe { 50% { opacity: .65; transform: scale(.95); } }
+@keyframes tide-jelly-swim {
+    0%, 100% { transform: translate(0, 0) rotate(-1deg); }
+    25% { transform: translate(3px, -13px) rotate(.5deg); }
+    50% { transform: translate(8px, -7px) rotate(1.5deg); }
+    75% { transform: translate(5px, -19px) rotate(0deg); }
+}
+@keyframes tide-bell-pulse {
+    0%, 100% { transform: scale(1.01, .99); }
+    24% { transform: scale(.955, 1.035); }
+    42% { transform: scale(1.025, .955); }
+    72% { transform: scale(1, 1); }
+}
+@keyframes tide-tendril-wave {
+    0%, 100% { transform: rotate(-1.8deg) scaleY(1); }
+    40% { transform: rotate(2.2deg) scaleY(.985); }
+    72% { transform: rotate(.6deg) scaleY(1.015); }
+}
+@keyframes tide-butterfly-drift { 50% { transform: translate(12px, -13px) rotate(7deg); } }
+@keyframes tide-wing-flutter { 50% { transform: scaleX(.45); } }
+@keyframes tide-bubble-rise { 0%, 100% { opacity: .15; transform: translateY(7px); } 50% { opacity: .75; transform: translate(3px, -12px); } }
+.projects-tide-scene *, .projects-tide-scene::before, .projects-tide-scene::after { animation-play-state: paused; }
+.projects-section.is-awake .projects-tide-scene.is-visible *,
+.projects-section.is-awake .projects-tide-scene.is-visible::before,
+.projects-section.is-awake .projects-tide-scene.is-visible::after { animation-play-state: running; }
+.projects-section:not(.is-awake) .projects-tide-scene *,
+html.project-dialog-open .projects-tide-scene *,
+html.project-dialog-open .projects-tide-scene::before,
+html.project-dialog-open .projects-tide-scene::after { animation-play-state: paused; }
+@media (max-width: 720px) {
+    .magic-aurora { height: 570px; }
+    .magic-aurora--violet { height: 750px; }
+    .projects-tide-scene { height: 245px; margin-top: 18px; }
+    .tide-jelly { width: 144px; height: 204px; right: 14%; }
+    .tide-moon-halo { right: -3%; height: 220px; }
+    .tide-pearl-moon { left: 12%; top: 118px; width: 45px; height: 45px; }
+    .tide-butterfly--near { left: 15%; top: 24px; width: 53px; height: 44px; }
+    .tide-butterfly--far { right: 0; top: 169px; width: 36px; height: 30px; }
+    .tide-current { top: 111px; height: 110px; }
+    .tide-star--one { left: 1%; top: 75px; font-size: 20px; }
+    .tide-star--two { left: 42%; top: 198px; font-size: 10px; }
+    .tide-star--three { right: 0; top: 30px; font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .projects-enchantment *, .projects-tide-scene *,
+    .projects-tide-scene::before, .projects-tide-scene::after { animation: none !important; }
+}
+html[data-motion="paused"] .projects-enchantment *,
+html[data-motion="paused"] .projects-tide-scene *,
+html[data-motion="paused"] .projects-tide-scene::before,
+html[data-motion="paused"] .projects-tide-scene::after { animation-play-state: paused !important; }

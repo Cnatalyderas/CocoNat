@@ -1,0 +1,49 @@
+/* Solid palette sprites retain the original movement and atmospheric lighting. */
+.tide-jelly, .tide-butterfly, .certificate-owl,
+.contact-koi-swim, .contact-pixel-moon, .contact-pixel-gate {
+    shape-rendering: crispEdges;
+}
+.projects-magic-canvas { image-rendering: pixelated; }
+.tide-pearl-moon, .certificate-moon {
+    border: 0;
+    border-radius: 0;
+    background: url('../assets/pixel/moon.svg') center / contain no-repeat;
+    box-shadow: none;
+    image-rendering: pixelated;
+}
+.tide-pearl-moon::before {
+    inset: -17px -28px;
+    border: 0;
+    border-radius: 0;
+    background: url('../assets/pixel/orbit.svg') center / contain no-repeat;
+    opacity: .5;
+    transform: none;
+    image-rendering: pixelated;
+}
+.tide-pearl-moon::after {
+    width: 4px;
+    height: 4px;
+    border-radius: 0;
+    box-shadow: 4px 0 #79b7e4;
+}
+.certificate-moon { opacity: .55; }
+.tide-star, .certificate-flight-star {
+    display: block;
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    color: transparent;
+    background: url('../assets/pixel/star.svg') center / contain no-repeat;
+    image-rendering: pixelated;
+}
+.magic-star, .certificate-fixed-stars > i {
+    clip-path: none;
+    background: url('../assets/pixel/star.svg') center / contain no-repeat;
+    image-rendering: pixelated;
+}
+.projects-tide-scene::before, .projects-tide-scene::after {
+    border-radius: 0;
+    width: 6px;
+    height: 6px;
+}
+.tide-current, .certificate-constellation svg { shape-rendering: crispEdges; }

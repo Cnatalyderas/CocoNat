@@ -1,0 +1,157 @@
+/* A blue observatory, with quiet reading spaces inside a living pixel sky. */
+.about-page {
+    --aqua: #afdafa;
+    --aqua-bright: #d5eeff;
+    --lavender: #c5bcea;
+    --line: #a6cff223;
+    --ink: #080f1c;
+    isolation: isolate;
+    background: var(--ink);
+}
+.about-page .site-background { display: none; }
+.about-universe { position: fixed; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 85% 8%, #244b8038, transparent 60%), radial-gradient(ellipse at 8% 75%, #143e6538, transparent 52%), #080f1c; }
+.about-sky-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.about-nebula { position: absolute; width: 100%; height: 90%; opacity: .65; animation: about-nebula-drift 26s ease-in-out infinite alternate; }
+.about-nebula--blue { left: -40%; top: 5%; background: radial-gradient(ellipse, #2769a62b, #235c8b12 40%, transparent 70%); }
+.about-nebula--violet { right: -35%; bottom: -20%; background: radial-gradient(ellipse, #5964b52b, #245c8817 40%, transparent 68%); animation-delay: -13s; }
+.about-universe *, .about-celestial-stage *, .about-celestial-stage::before, .about-celestial-stage::after { animation-play-state: paused; }
+.about-universe.is-dreaming *, .about-celestial-stage.is-dreaming *, .about-celestial-stage.is-dreaming::before, .about-celestial-stage.is-dreaming::after { animation-play-state: running; }
+.about-page .about-hero { --aqua: #99e8d3; --aqua-bright: #b4ffe6; --lavender: #b9a9e0; --line: #b2d6d521; padding-top: 148px; overflow: visible; }
+.about-page .about-hero::before { content: ''; position: absolute; z-index: -1; inset: 0 0 -55px; pointer-events: none; background: radial-gradient(ellipse at 78% 42%, #1e655d38, transparent 62%), radial-gradient(ellipse at 12% 60%, #1d4d4421, transparent 65%), linear-gradient(180deg, #080e13b3, #080e1370 65%, transparent); }
+.about-page .hero-atmosphere { display: none; }
+.about-page .about-hero-layout { grid-template-columns: 1.12fr 1fr; gap: 100px; align-items: center; }
+.about-page .home-return { color: #c6dbd2; border-color: #99e8d338; background: #14352f60; border-radius: 4px; font-size: 11px; margin-bottom: 27px; }
+.about-page .home-return:hover { color: #e8fff4; background: #285f4f59; border-color: #99e8d388; }
+.about-page .about-intro .eyebrow { color: #a2c6bd; font-size: 9px; letter-spacing: .17em; }
+.about-page .about-title { font-size: clamp(112px, 11.8vw, 170px); line-height: .82; margin: 28px 0 32px; color: #edf2ed; }
+.about-page .about-title > em { color: var(--aqua); margin-left: .4em; text-shadow: 0 0 60px #99e8d319; }
+.about-page .about-title::after { width: 35px; height: 35px; content: ''; right: -61px; top: 22%; background: url('../assets/pixel/star-mint.svg') center / contain no-repeat; animation: about-title-shimmer 7s ease-in-out infinite; }
+.about-page .about-lead { color: #b1c3c3; font-size: 14px; max-width: 400px; line-height: 1.95; }
+.about-page .chapter-links { gap: 7px; margin-top: 29px; padding-top: 22px; border-top-color: #a7d9c730; }
+.about-page .chapter-links > a { gap: 12px; padding: 0 12px; min-height: 44px; border: 1px solid #a9d8ca30; border-radius: 4px; background: #173d3436; color: #d3e6df; transition: background .2s, border-color .2s, color .2s; }
+.about-page .chapter-links > a:hover { color: #eafff4; background: #479c7d29; border-color: #99e8d36b; }
+.about-page .portrait-composition { width: min(330px, 100%); margin-top: 24px; }
+.about-page .portrait-composition::before { content: ''; position: absolute; z-index: -2; inset: -80px -100px -70px; background: radial-gradient(ellipse, #57c8ab2b, #205d4e1a 48%, transparent 70%); pointer-events: none; }
+.about-page .about-photo { padding: 10px; border: 1px solid #99e8d35c; border-radius: 170px 170px 10px 10px; background: linear-gradient(150deg, #173f3bdb, #10252fe8 60%, #242136c7); box-shadow: 0 24px 65px #02081466, 0 0 0 6px #99e8d305, 0 0 0 7px #99e8d316; }
+.about-page .portrait-media { border-radius: 160px 160px 3px 3px; background: #102c2a; }
+.about-page .portrait-media::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: inset 0 0 0 1px #d8ffeb2b; background: linear-gradient(0deg, #0e302b26, transparent 24%); }
+.about-page .photo-corner { border-color: #cbffe499; width: 10px; height: 10px; }
+.about-page .corner-tl, .about-page .corner-tr { display: none; }
+.about-page .about-photo figcaption { font-family: var(--sans); font-size: 8px; letter-spacing: .12em; color: #b4d5c9; padding: 16px 7px 7px; }
+.about-page .photo-ratio { color: #abc9c1; }
+.about-page .portrait-orbit-ring { width: calc(100% + 138px); left: -69px; top: -3px; border-color: #99e8d322; border-right-color: transparent; border-bottom-color: #99e8d34d; animation-duration: 65s; }
+.about-page .portrait-orbit-ring::after { inset: 21px -22px; border-color: #bdf5df19; }
+.about-page .portrait-spark { background: url('../assets/pixel/star-mint.svg') center / contain no-repeat; clip-path: none; image-rendering: pixelated; }
+.about-page .portrait-spark-one { right: -43px; top: 47px; width: 30px; height: 30px; }
+.about-page .portrait-spark-two { left: -39px; bottom: 95px; width: 16px; height: 16px; }
+.about-page .portrait-side-note { color: #a1c4b5; right: -52px; font-family: var(--sans); font-size: 8px; }
+.about-page .portrait-small-cross { color: #99e8d388; }
+.portrait-little-planet { position: absolute; z-index: -1; width: 80px; height: 80px; right: -68px; bottom: -22px; image-rendering: pixelated; animation: about-planet-bob 11s ease-in-out infinite; }
+.about-page .about-hero-bottom { margin-top: 58px; border-color: #a7d9c729; }
+.about-page .scroll-cue { color: #b4c7c4; }
+.about-page .reveal { filter: none; transition-property: opacity, transform; }
+
+/* The animals have their own clearings; text never sits below a sprite. */
+.about-celestial-stage { pointer-events: none; user-select: none; }
+.about-orbit-scene, .about-fox-scene { position: relative; isolation: isolate; }
+.about-orbit-scene { height: 225px; margin-top: 6px; overflow: visible; }
+/* The glow spans the viewport; only the orbit lines fade at their endpoints. */
+.about-orbit-scene::before { content: ''; position: absolute; z-index: -1; inset: -10px calc(50% - 50vw) -30px; background: radial-gradient(ellipse at center, #326b9f27, #326b9f0c 38%, transparent 68%); pointer-events: none; }
+.about-scene-orbits { position: absolute; inset: 34px 4% 0; width: 92%; height: 150px; fill: none; stroke: #a5d5f731; stroke-width: .7; overflow: visible; mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); }
+.about-scene-orbits path + path { stroke-opacity: .45; }
+.about-planet { position: absolute; object-fit: contain; image-rendering: pixelated; animation: about-planet-bob 12s ease-in-out infinite; }
+.about-planet--saturn { width: 166px; height: 112px; left: 10%; top: 38px; }
+.about-sky-ray { position: absolute; width: 255px; height: auto; max-width: none; left: 53%; top: 10px; overflow: visible; shape-rendering: crispEdges; animation: about-ray-swim 11s ease-in-out infinite; }
+.sky-ray-wing--left, .sky-ray-wing--right { transform-box: view-box; animation: about-ray-wing 4.6s ease-in-out infinite; }
+.sky-ray-wing--left { transform-origin: 46.09375% 35.4167%; }
+.sky-ray-wing--right { transform-origin: 53.90625% 35.4167%; }
+.sky-ray-tail { transform-box: view-box; transform-origin: 49.21875% 50%; animation: about-ray-tail 5.4s ease-in-out infinite; }
+.about-scene-star { position: absolute; width: 16px; height: 16px; background: url('../assets/pixel/star.svg') center / contain no-repeat; image-rendering: pixelated; animation: about-title-shimmer 6s ease-in-out infinite; }
+.about-scene-star--one { left: 37%; top: 51px; width: 11px; height: 11px; }
+.about-scene-star--two { right: 6%; top: 110px; animation-delay: -3s; }
+.about-fox-scene { height: 240px; margin-block: 16px -20px; }
+.about-fox-scene::before { content: ''; position: absolute; z-index: -1; left: 8%; right: 8%; bottom: 25px; height: 100px; background: radial-gradient(ellipse, #477ca731, #31578611 45%, transparent 70%); }
+.about-fox-scene::after { content: ''; position: absolute; left: 15%; right: 15%; bottom: 50px; height: 1px; background: linear-gradient(90deg, transparent, #a6d3f538, transparent); }
+.about-planet--ocean { width: 92px; height: 92px; left: 18%; top: 50px; animation-delay: -4s; }
+.about-star-fox { position: absolute; width: 184px; height: auto; right: 18%; bottom: 41px; overflow: visible; shape-rendering: crispEdges; animation: about-fox-breathe 6s ease-in-out infinite; }
+.star-fox-tail { transform-box: view-box; transform-origin: 53.125% 79.1667%; animation: about-fox-tail 6s ease-in-out infinite; }
+.star-fox-head { transform-box: view-box; transform-origin: 45.8333% 51.0417%; animation: about-fox-look 12s ease-in-out infinite; }
+.star-fox-eyes { transform-box: fill-box; transform-origin: center; animation: about-fox-blink 8s linear infinite; }
+.about-fox-scene .about-scene-star--one { left: 43%; top: 104px; }
+.about-fox-scene .about-scene-star--two { right: 9%; top: 56px; }
+.about-page footer { border-color: #aed1f32b; }
+
+@keyframes about-nebula-drift { to { transform: translate(6%, -5%); opacity: .9; } }
+@keyframes about-title-shimmer { 50% { opacity: .4; transform: scale(.8); } }
+@keyframes about-planet-bob { 50% { transform: translateY(-9px) rotate(3deg); } }
+@keyframes about-ray-swim { 0%, 100% { transform: translate(0, 0) rotate(-3deg); } 50% { transform: translate(18px, -12px) rotate(3deg); } }
+@keyframes about-ray-wing { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.83); } }
+@keyframes about-ray-tail { 50% { transform: rotate(-5deg); } }
+@keyframes about-fox-breathe { 50% { transform: translateY(-2px); } }
+@keyframes about-fox-tail { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(4deg); } }
+@keyframes about-fox-look { 0%, 32%, 70%, 100% { transform: rotate(0deg); } 43%, 58% { transform: rotate(-4deg); } }
+@keyframes about-fox-blink { 0%, 90%, 96%, 100% { transform: scaleY(1); } 93% { transform: scaleY(.08); } }
+
+@media (max-width: 1100px) {
+    .about-page .about-hero-layout { gap: 75px; }
+    .about-page .portrait-composition { width: min(295px, calc(100% - 25px)); }
+    .about-page .portrait-composition::before { inset: -70px -40px; }
+    .about-page .about-title { font-size: clamp(108px, 12vw, 145px); }
+    .about-page .chapter-links > a { gap: 8px; padding-inline: 10px; }
+}
+@media (max-width: 800px) {
+    .about-page .about-hero-layout { gap: 50px; }
+    .about-page .about-title { font-size: 110px; }
+    .about-page .about-lead { font-size: 13px; }
+    .about-page .chapter-links > a { gap: 7px; font-size: 10px; padding-inline: 8px; }
+    .about-page .portrait-orbit-ring { left: -30px; width: calc(100% + 60px); animation: none; }
+    .about-page .portrait-orbit-ring::after { inset-inline: -12px; }
+    .portrait-little-planet { width: 60px; height: 60px; right: -33px; }
+    .about-page .portrait-side-note { right: -29px; }
+    .about-page .portrait-spark-one { right: -25px; }
+    .about-sky-ray { left: 48%; width: 225px; }
+    .about-planet--saturn { left: 5%; width: 140px; }
+    .about-star-fox { right: 12%; }
+}
+@media (max-width: 620px) {
+    .about-page .about-hero { padding-top: 124px; }
+    .about-page .about-hero-layout { grid-template-columns: 1fr; gap: 54px; }
+    .about-page .about-intro { max-width: 390px; width: 100%; }
+    .about-page .about-intro .eyebrow { font-size: 8px; }
+    .about-page .about-title { font-size: clamp(112px, 28vw, 148px); }
+    .about-page .about-title::after { width: 27px; height: 27px; right: -35px; }
+    .about-page .about-title > em { margin-left: .45em; }
+    .about-page .about-lead { max-width: 350px; }
+    .about-page .chapter-links { flex-wrap: nowrap; gap: 6px; padding-top: 18px; }
+    .about-page .chapter-links > a { flex: 1; justify-content: space-between; min-height: 44px; padding-inline: 8px; gap: 5px; font-size: 10px; }
+    .about-page .portrait-composition { width: min(285px, calc(100% - 44px)); margin-top: 0; }
+    .about-page .portrait-composition::before { inset: -50px -40px; }
+    .about-page .about-hero-bottom { margin-top: 45px; padding-block: 22px; }
+    .about-orbit-scene { height: 180px; margin-top: 15px; }
+    .about-sky-ray { width: 175px; left: auto; right: 8px; top: 8px; }
+    .about-planet--saturn { width: 110px; height: 85px; left: -8px; top: 44px; }
+    .about-scene-orbits { inset: 30px 0 0; width: 100%; }
+    .about-scene-star--one { left: 40%; top: 35px; width: 8px; height: 8px; }
+    .about-scene-star--two { right: 1%; top: 129px; width: 10px; height: 10px; }
+    .about-fox-scene { height: 195px; margin-block: 7px -12px; }
+    .about-star-fox { width: 150px; right: 2%; bottom: 35px; }
+    .about-planet--ocean { width: 66px; height: 66px; left: 4%; top: 43px; }
+    .about-fox-scene .about-scene-star--one { left: 40%; top: 70px; }
+    .about-fox-scene::after { left: 2%; right: 2%; bottom: 43px; }
+}
+@media (max-width: 359px) {
+    .about-page .chapter-links > a { padding-inline: 6px; }
+    .about-page .chapter-links > a > span:last-child { display: none; }
+    .about-page .about-title { font-size: clamp(100px, 32.5vw, 110px); }
+    .about-page .about-title::after { right: -27px; }
+    .about-sky-ray { width: 155px; right: 8px; }
+    .about-planet--saturn { width: 95px; }
+}
+html[data-motion="paused"] .about-universe *,
+html[data-motion="paused"] .about-celestial-stage *,
+html[data-motion="paused"] .about-celestial-stage::before,
+html[data-motion="paused"] .about-celestial-stage::after { animation-play-state: paused !important; }
+@media (prefers-reduced-motion: reduce) {
+    .about-universe *, .about-celestial-stage *, .about-celestial-stage::before, .about-celestial-stage::after,
+    .about-page .about-title::after { animation: none !important; }
+}

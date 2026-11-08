@@ -15,10 +15,15 @@
     --mono: 'DM Mono', monospace;
     --page-width: 1216px;
     --gutter: clamp(22px, 5vw, 80px);
+    --nav-offset: 126px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 130px; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-offset); overflow-x: clip; }
+/* Clip scenery at the viewport, including browsers without overflow: clip. */
+@supports not (overflow: clip) {
+    html { overflow-x: hidden; }
+}
 body {
     margin: 0;
     background: var(--ink);
@@ -36,7 +41,6 @@ img, svg { display: block; max-width: 100%; }
 button, a, canvas { touch-action: manipulation; }
 ::selection { color: var(--ink); background: var(--aqua); }
 :focus-visible { outline: 2px solid var(--aqua-bright); outline-offset: 6px; }
-section[id] { scroll-margin-top: 130px; }
 
 .skip-link {
     position: fixed;
@@ -80,6 +84,9 @@ section[id] { scroll-margin-top: 130px; }
 .button-text { gap: 16px; color: #d3deda; padding: 0 8px; }
 .button-text span { font-size: 20px; color: var(--aqua); }
 .button-text:hover { color: var(--aqua-bright); }
+.button-secondary { gap: 24px; padding: 0 20px; border: 1px solid #a9d8ca50; border-radius: 7px; background: #a9d8ca0a; color: #dcebe5; transition: background .25s, border-color .25s; }
+.button-secondary > span { color: var(--aqua); font-size: 20px; }
+.button-secondary:hover { border-color: #a9d8ca99; background: #a9d8ca16; }
 
 .reveal { opacity: 0; transition: opacity .65s ease; }
 .reveal.is-visible { opacity: 1; }
@@ -104,17 +111,16 @@ footer {
     font: 9px var(--mono);
     letter-spacing: .06em;
 }
-.footer-signature { color: var(--text); font: 29px var(--serif); letter-spacing: -.05em; }
-.footer-signature span { color: var(--aqua); }
+.footer-signature { color: #e4eef5; font: 400 32px/1 var(--serif); letter-spacing: -.025em; white-space: nowrap; }
+.footer-signature .brand-surname { color: #b9d9ef; font-style: italic; }
 .back-to-top { font-size: 10px; padding: 10px 0; }
 .back-to-top:hover { color: var(--aqua); }
 
 @media (max-width: 640px) {
-    html { scroll-padding-top: 104px; }
-    section[id] { scroll-margin-top: 104px; }
     footer { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
     footer > :nth-child(even) { text-align: right; }
     footer > span { font-size: 8px; }
+    .footer-signature { font-size: 25px; }
 }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }

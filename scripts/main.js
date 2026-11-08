@@ -6,10 +6,14 @@
     const navbar = document.querySelector('.navbar');
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = [...document.querySelectorAll('.nav-links a')];
-    const sections = [...document.querySelectorAll('main > section[id]')];
-    const motionToggle = document.querySelector('.motion-toggle');
+    const navigationLinks = [...document.querySelectorAll('.nav-pages a, .nav-links a')];
+    const sections = navLinks.map(link => {
+        const target = new URL(link.href, window.location.href);
+        if (target.pathname !== window.location.pathname || !target.hash) return null;
+        return document.getElementById(target.hash.slice(1));
+    }).filter(Boolean);
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const hoverPointer = window.matchMedia('(hover: hover)');
+    const hoverPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
     let previousScroll = Math.max(0, window.scrollY);
     let scrollDirection = 0;
     let directionTravel = 0;
@@ -18,21 +22,15 @@
 
     function setMotion(paused) {
         html.dataset.motion = paused ? 'paused' : 'running';
-        if (motionToggle) {
-            motionToggle.setAttribute('aria-pressed', String(paused));
-            motionToggle.querySelector('.motion-label').textContent = paused
-                ? 'Enable animation' : 'Pause animation';
-        }
         window.dispatchEvent(new CustomEvent('portfolio:motion', { detail: { paused } }));
     }
 
     setMotion(reducedMotion.matches);
-    motionToggle?.addEventListener('click', () => setMotion(html.dataset.motion !== 'paused'));
     reducedMotion.addEventListener('change', event => setMotion(event.matches));
 
     function setMenu(open, restoreFocus = false) {
         menuToggle.setAttribute('aria-expanded', String(open));
-        menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menuToggle.setAttribute('aria-label', open ? 'Close section menu' : 'Open section menu');
         navbar.classList.toggle('menu-open', open);
         if (open) showNavbar();
         if (restoreFocus) menuToggle.focus();
@@ -41,7 +39,7 @@
     menuToggle.addEventListener('click', () => {
         setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
     });
-    navLinks.forEach(link => link.addEventListener('click', () => setMenu(false)));
+    navigationLinks.forEach(link => link.addEventListener('click', () => setMenu(false)));
     document.querySelector('.logo').addEventListener('click', () => setMenu(false));
     document.addEventListener('keydown', event => {
         if (event.key === 'Tab') showNavbar();
@@ -50,8 +48,11 @@
     document.addEventListener('pointerdown', event => {
         if (!navbar.contains(event.target)) setMenu(false);
     });
-    window.matchMedia('(min-width: 1061px)').addEventListener('change', () => setMenu(false));
+    window.matchMedia('(min-width: 901px)').addEventListener('change', () => setMenu(false));
     navbar.addEventListener('focusin', showNavbar);
+    navbar.addEventListener('focusout', event => {
+        if (!navbar.contains(event.relatedTarget)) setMenu(false);
+    });
 
     function showNavbar() {
         navbar.classList.remove('is-hidden');
@@ -65,26 +66,27 @@
         const focused = document.activeElement;
         const keyboardFocus = navbar.contains(focused) && focused.matches(':focus-visible');
         const interacting = navbar.classList.contains('menu-open') || keyboardFocus
-            || (hoverPointer.matches && navbar.matches(':hover'));
+            || (hoverPointer.matches && navbar.matches(':hover'))
+            || html.classList.contains('project-dialog-open')
+            || html.classList.contains('certificate-dialog-open');
 
-        // Cerca del inicio y durante la interacción, la navegación permanece accesible.
-        if (scrollY <= Math.max(140, navbar.offsetHeight + 48) || interacting) {
+        if (scrollY <= 96 || interacting) {
             showNavbar();
             return;
         }
-        if (!delta) return;
+        if (Math.abs(delta) < .5) return;
 
         const direction = Math.sign(delta);
         if (direction !== scrollDirection) directionTravel = 0;
         scrollDirection = direction;
         directionTravel += Math.abs(delta);
 
-        // La distancia acumulada evita parpadeos por pequeños cambios del trackpad.
-        if (direction === 1 && directionTravel >= 18) navbar.classList.add('is-hidden');
-        else if (direction === -1 && directionTravel >= 8) navbar.classList.remove('is-hidden');
+        // Umbrales distintos: sale con intención y vuelve con un gesto pequeño.
+        if (direction > 0 && directionTravel >= 28) navbar.classList.add('is-hidden');
+        else if (direction < 0 && directionTravel >= 8) navbar.classList.remove('is-hidden');
     }
 
-    // Un solo cálculo por fotograma para visibilidad, progreso y sección actual.
+    // Un cálculo por fotograma para scroll, progreso y sección activa.
     let scrollPending = false;
     function updateNavigation() {
         const maxScroll = Math.max(0, html.scrollHeight - window.innerHeight);
@@ -92,8 +94,8 @@
         navbar.style.setProperty('--scroll-progress', maxScroll > 0 ? scrollY / maxScroll : 0);
         navbar.classList.toggle('is-scrolled', scrollY > 24);
         updateNavbarVisibility(scrollY);
-        let current = sections[0]?.id;
-        const activationLine = Math.max(160, window.innerHeight * .3);
+        let current;
+        const activationLine = parseFloat(getComputedStyle(html).scrollPaddingTop) + 24;
         sections.forEach(section => {
             if (section.getBoundingClientRect().top <= activationLine) current = section.id;
         });
@@ -113,7 +115,11 @@
         }
     }
     window.addEventListener('scroll', scheduleNavigation, { passive: true });
-    window.addEventListener('resize', scheduleNavigation, { passive: true });
+    window.addEventListener('resize', () => {
+        previousScroll = Math.max(0, window.scrollY);
+        showNavbar();
+        scheduleNavigation();
+    }, { passive: true });
     window.addEventListener('load', scheduleNavigation);
     updateNavigation();
 

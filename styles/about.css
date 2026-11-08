@@ -11,9 +11,9 @@
 .about-page .about-hero { min-height: 0; padding: 158px var(--gutter) 0; }
 .about-hero-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 100px; max-width: 1120px; margin-inline: auto; }
 .about-intro { min-width: 0; padding-bottom: 10px; }
-.home-return { display: inline-flex; align-items: center; gap: 11px; margin-bottom: 40px; padding-block: 8px; color: #a2b8b5; font: 8px var(--mono); letter-spacing: .08em; transition: color .25s; }
+.home-return { display: inline-flex; align-items: center; gap: 11px; min-height: 44px; margin-bottom: 30px; padding: 0 15px; border: 1px solid #a9d8ca40; border-radius: 9px; background: #a9d8ca08; color: #c6dbd2; font: 12px var(--sans); transition: color .25s, background .25s, border-color .25s; }
 .home-return > span { color: var(--aqua); font: 17px var(--sans); }
-.home-return:hover { color: var(--aqua-bright); }
+.home-return:hover { color: var(--aqua-bright); border-color: #a9d8ca80; background: #a9d8ca14; }
 .about-title { position: relative; margin: 24px 0 29px; width: fit-content; font: 400 clamp(100px, 11vw, 157px)/.84 var(--serif); letter-spacing: -.045em; }
 .about-title > em { display: block; margin-left: .43em; padding-bottom: .06em; color: var(--aqua); font-weight: 400; }
 .about-title > em > span { color: var(--lavender); }
@@ -21,7 +21,6 @@
 .about-lead { max-width: 420px; color: #b1c3c3; font-size: 13px; line-height: 1.95; text-wrap: pretty; }
 .chapter-links { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 31px; padding-top: 21px; border-top: 1px solid var(--line); }
 .chapter-links > a { display: inline-flex; align-items: center; gap: 9px; min-height: 35px; color: #c4d4cd; font-size: 11px; transition: color .25s; }
-.chapter-links > a > span:first-child { color: #8baba1; font: 8px var(--mono); }
 .chapter-links > a > span:last-child { color: var(--aqua); transition: transform .3s var(--about-ease); }
 .chapter-links > a:hover { color: var(--aqua-bright); }
 .chapter-links > a:hover > span:last-child { transform: translate(2px, 2px); }
@@ -56,7 +55,7 @@
 .about-hero-bottom { display: flex; align-items: center; justify-content: space-between; max-width: 1120px; margin: 55px auto 0; padding: 23px 0; border-top: 1px solid var(--line); }
 
 /* Profile: only the supplied text, arranged into a clear editorial spread. */
-.about-story { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; padding-block: 90px 115px; scroll-margin-top: 135px; }
+.about-story { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; padding-block: 90px 115px; }
 .story-heading { position: relative; }
 .story-heading h2 { margin-top: 24px; font: 400 clamp(38px, 4.2vw, 59px)/1.04 var(--serif); letter-spacing: -.025em; }
 .story-heading h2 em { color: var(--aqua); font-weight: 400; }
@@ -153,8 +152,10 @@ html[data-motion="paused"] .about-photo { transform: none; transition: none; }
     .experience-copy h3 { font-size: 35px; }
     .about-closing { padding: 35px; gap: 35px; }
 }
+@media (max-width: 1060px) {
+    .about-page .about-hero { padding-top: 132px; }
+}
 @media (max-width: 800px) {
-    .about-page .about-hero { padding-top: 140px; }
     .about-hero-layout { gap: 45px; }
     .about-title { font-size: 105px; }
     .about-title::after { right: -30px; font-size: 28px; }
@@ -187,7 +188,7 @@ html[data-motion="paused"] .about-photo { transform: none; transition: none; }
     .about-closing-links { max-width: 420px; }
 }
 @media (max-width: 620px) {
-    .about-page .about-hero { padding-top: 112px; }
+    .about-page .about-hero { padding-top: 124px; }
     .about-hero-layout { grid-template-columns: 1fr; gap: 36px; }
     .about-intro { width: min(390px, 100%); margin-inline: auto; }
     .about-title { font-size: clamp(100px, 26vw, 137px); }
@@ -205,7 +206,7 @@ html[data-motion="paused"] .about-photo { transform: none; transition: none; }
     .portrait-side-note { right: -29px; }
     .portrait-spark-two { left: -22px; width: 15px; height: 15px; }
     .about-hero-bottom { margin-top: 40px; }
-    .about-story { grid-template-columns: 1fr; gap: 30px; padding-block: 58px 68px; scroll-margin-top: 110px; }
+    .about-story { grid-template-columns: 1fr; gap: 30px; padding-block: 58px 68px; }
     .story-heading h2 { font-size: 46px; }
     .story-subtitle { margin-top: 13px; font-size: 18px; }
     .story-star { position: absolute; right: 9px; bottom: 0; margin: 0; font-size: 29px; }

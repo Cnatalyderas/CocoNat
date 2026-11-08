@@ -1,0 +1,176 @@
+/* Personal hobbies, framed by the same blue sky as the About page. */
+.about-hobbies { position: relative; isolation: isolate; padding-block: 100px 75px; }
+.about-hobbies::before { content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 85% 24%, #326bb222, transparent 55%), radial-gradient(ellipse at 15% 80%, #5365b917, transparent 55%); }
+.hobbies-heading { display: flex; align-items: center; justify-content: space-between; gap: 30px; margin-bottom: 45px; }
+.hobbies-heading .chapter-title { font-size: clamp(64px, 7vw, 94px); }
+.hobbies-constellation { width: 180px; height: 90px; color: #afdafa; }
+.hobbies-constellation path { fill: none; stroke: currentColor; stroke-opacity: .25; }
+.hobbies-constellation circle { fill: #cdeaff; }
+.hobbies-constellation .constellation-star { fill: #cdeaff; stroke: none; }
+.hobbies-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 22px; }
+.hobby-card { position: relative; min-width: 0; padding: 26px; border: 1px solid #a9d3f332; border-radius: 24px 7px 24px 7px; background: linear-gradient(145deg, #183555ab, #0c1b30db); box-shadow: inset 0 1px 0 #def3ff0a, 0 18px 40px -32px #000b; }
+.hobby-card:nth-child(2), .hobby-card:nth-child(5) { border-radius: 7px 24px 7px 24px; }
+.hobby-card-top { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 20px; }
+.hobby-icon { width: 28px; height: 28px; fill: none; stroke: #b8dfff; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.hobby-number { color: #93b2d2; font: 10px var(--mono); letter-spacing: .12em; }
+.hobby-card h3 { color: #e3f0ff; font: 400 clamp(28px, 2.7vw, 35px)/1.08 var(--serif); letter-spacing: -.015em; }
+.hobby-card--football { grid-column: 1 / -1; display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: 44px; padding: 38px; overflow: hidden; background: radial-gradient(ellipse at 75% 50%, #497fc92a, transparent 65%), linear-gradient(135deg, #183555db, #0c1b30ed); }
+.hobby-football-story { min-width: 0; max-width: 430px; }
+.hobby-football-story h3 { font-size: clamp(44px, 5vw, 64px); }
+.hobby-football-intro { margin-top: 20px; color: #bed0e4; font: 15px/1.9 var(--sans); }
+.hobby-football-award { display: flex; align-items: flex-start; gap: 16px; margin-top: 32px; padding-top: 26px; border-top: 1px solid #b0d5f32e; }
+.hobby-football-award > svg { flex: 0 0 32px; width: 32px; height: 32px; fill: none; stroke: #b8dfff; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.hobby-football-award > div { min-width: 0; }
+.hobby-football-award time { display: block; color: #a9d4f6; font: 10px/1.7 var(--mono); letter-spacing: .04em; }
+.hobby-football-award h4 { margin-top: 9px; color: #e3f0ff; font: 400 25px/1.2 var(--serif); }
+.hobby-football-award p { margin-top: 12px; color: #afc8df; font: 13px/1.8 var(--sans); }
+.hobby-football-memory { position: relative; width: 100%; max-width: 480px; margin-left: auto; isolation: isolate; }
+.hobby-football-memory::before { content: ''; position: absolute; z-index: -1; inset: -24px -25px 30px 10px; border: 1px solid #acd4f326; border-radius: 50%; background: radial-gradient(ellipse, #7bb7f21a, transparent 70%); pointer-events: none; }
+.hobby-football-memory a { position: relative; display: block; overflow: hidden; border: 1px solid #b8ddf347; background: #11283f; box-shadow: 0 16px 35px #020b1b55; transition: border-color .2s; }
+.hobby-football-memory a:hover { border-color: #c5e7ffbb; }
+.hobby-football-memory a:focus-visible { outline: 3px solid #c5e7ff; outline-offset: 4px; }
+.hobby-football-memory img { display: block; width: 100%; height: auto; }
+.hobby-football-memory .hobby-football-main { width: 82%; max-width: 360px; margin-left: auto; border-radius: 16px; }
+.hobby-football-zoom { position: absolute; top: 12px; right: 12px; display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid #deefff55; border-radius: 50%; color: #e3f0ff; background: #0b192cbf; }
+.hobby-football-zoom svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.hobby-football-memory .hobby-football-detail { position: absolute; left: 0; bottom: 28px; width: 36%; max-width: 150px; padding: 6px; border-radius: 9px; background: #172f49; }
+.hobby-football-detail img { border-radius: 3px; }
+.hobby-football-detail > span { display: block; padding: 10px 3px 4px; color: #c7e1f7; text-align: center; font: 9px/1.5 var(--mono); }
+.hobby-card--music { grid-column: 1 / -1; display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 38px; padding: 32px 38px; }
+.hobby-music-copy { min-width: 0; }
+.hobby-card-note { max-width: 440px; margin-top: 14px; color: #afc8df; font: 13px/1.8 var(--sans); }
+.hobby-card-note strong { color: #e3f0ff; font-weight: 500; }
+.hobby-artists { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.hobby-artist { --artist-accent: #aedcff; position: relative; min-width: 0; margin: 0; overflow: hidden; border: 1px solid #acd6fb40; border-radius: 32px 8px 12px 12px; background: radial-gradient(ellipse at 50% 35%, #588bcc35, transparent 70%), #0b1b30a6; }
+.hobby-artist--lisa { --artist-accent: #efc4dc; border-color: #d5c3ec32; border-radius: 8px 32px 12px 12px; background: radial-gradient(ellipse at 50% 35%, #a079b22b, transparent 70%), #0b1b30a6; }
+.hobby-artist-stage { position: relative; display: flex; align-items: flex-end; justify-content: center; min-width: 0; height: 220px; overflow: hidden; }
+.hobby-artist-stage::after { content: '✦'; position: absolute; top: 22px; right: 22px; color: var(--artist-accent); font-size: 15px; }
+.hobby-artist-stage img { position: relative; z-index: 1; flex: 0 0 auto; width: 216px; height: 216px; max-width: none; object-fit: contain; image-rendering: pixelated; }
+.hobby-record { position: absolute; top: 30px; left: calc(50% - 78px); width: 156px; aspect-ratio: 1; border: 1px solid #b2d7fb2d; border-radius: 50%; background: repeating-radial-gradient(circle, transparent 0 9px, #b5d5fc0c 10px 11px, transparent 12px 18px); }
+.hobby-record::after { content: ''; position: absolute; inset: 55px; border: 1px solid #b2d7fb40; border-radius: 50%; background: #8fbff219; }
+.hobby-artist figcaption { position: relative; z-index: 2; padding: 20px 16px 16px; border-bottom: 1px solid #b5d7f323; background: #0b192c80; }
+.hobby-artist-group { display: block; color: var(--artist-accent); font: 400 clamp(20px, 2vw, 27px)/1.15 var(--serif); letter-spacing: -.015em; }
+.hobby-artist-favorite { display: block; margin-top: 8px; color: #afc8df; font: 10px/1.6 var(--mono); }
+.hobby-artist-favorite em { color: #e7f2ff; font-style: normal; }
+.hobby-card--creative { grid-column: span 2; min-height: 225px; overflow: hidden; }
+.hobby-art { display: block; width: 120px; height: 96px; margin: 22px 0 0 auto; overflow: visible; }
+.hobby-art--origami { width: 132px; }
+.hobby-card--photography { grid-column: 1 / -1; display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 38px; min-height: 330px; padding: 38px; overflow: hidden; border-radius: 7px 50px 7px 24px; background: radial-gradient(ellipse at 75% 55%, #497fc930, transparent 65%), linear-gradient(130deg, #142d49e6, #0b1b30e8); }
+.hobby-card--photography::after { content: ''; position: absolute; right: 40px; top: 28px; width: 14px; height: 14px; background: url('../assets/pixel/star.svg') center / contain no-repeat; pointer-events: none; }
+.hobby-card--photography .hobby-card-top { max-width: 240px; }
+.hobby-card--photography h3 { font-size: clamp(40px, 4.7vw, 60px); }
+.hobby-photo-count { margin-top: 13px; color: #a9c7df; font: 11px/1.7 var(--mono); }
+.hobby-gallery-link { display: inline-flex; align-items: center; gap: 25px; min-height: 48px; margin-top: 28px; padding: 0 16px; border: 1px solid #abd8ff80; border-radius: 5px; color: #d6edff; background: #98ccff12; font-size: 12px; transition: background .2s, border-color .2s; }
+.hobby-gallery-link:hover { border-color: #c9eaff; background: #98ccff25; }
+.hobby-gallery-link img { width: 25px; height: 25px; }
+.hobby-photo-preview { position: relative; min-height: 250px; pointer-events: none; }
+.hobby-photo-preview::before { content: ''; position: absolute; inset: 0 15%; border: 1px solid #acd4f32a; border-radius: 50%; transform: rotate(-15deg); }
+.hobby-photo-preview img { position: absolute; width: 42%; height: 215px; padding: 6px 6px 23px; border: 1px solid #d5ebff50; border-radius: 3px; object-fit: cover; background: #203d58; box-shadow: 0 15px 35px #020a1759; }
+.hobby-photo-preview img:nth-child(1) { left: 2%; top: 15px; transform: rotate(-12deg); }
+.hobby-photo-preview img:nth-child(2) { left: 31%; top: 0; z-index: 1; transform: rotate(3deg); }
+.hobby-photo-preview img:nth-child(3) { right: -2%; top: 30px; transform: rotate(14deg); }
+.photo-collection { margin-top: 24px; padding: 20px; border: 1px solid #a9d3f332; border-radius: 12px; }
+.photo-collection > summary { min-height: 44px; color: #c9e6ff; cursor: pointer; }
+.photo-collection[hidden], .photo-gallery [hidden] { display: none !important; }
+.photo-gallery-grid { columns: 4; column-gap: 18px; }
+.photo-tile { position: relative; display: block; break-inside: avoid; margin-bottom: 18px; padding: 7px 7px 25px; border: 1px solid #a9d1f32d; border-radius: 4px; background: #142d46; transition: border-color .2s, background .2s; }
+.photo-tile img { width: 100%; height: auto; border-radius: 1px; background: #0b192c; }
+.photo-tile::after { content: attr(data-photo-number); position: absolute; bottom: 7px; right: 10px; color: #aac9e2; font: 9px var(--mono); }
+.photo-tile:hover { border-color: #bddfff8a; background: #1c3b59; }
+html.photo-gallery-open { overflow: hidden; scrollbar-gutter: stable; }
+.photo-gallery { --aqua-bright: #d5eeff; width: min(1380px, calc(100% - 40px)); max-width: none; height: calc(100dvh - 40px); max-height: none; margin: auto; padding: 0; overflow: hidden; border: 1px solid #99c6ed61; border-radius: 20px; color: #e3f0ff; background: radial-gradient(ellipse at 65% 0, #326bb227, transparent 65%), #0b192c; box-shadow: 0 30px 100px #0009; }
+.photo-gallery:not([open]) { display: none; }
+.photo-gallery::backdrop { background: #020817e8; }
+.photo-gallery-shell { display: flex; flex-direction: column; height: 100%; }
+.photo-gallery-bar { display: flex; flex-shrink: 0; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 25px; border-bottom: 1px solid #afd3f028; background: #10243bd9; }
+.photo-gallery-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; }
+.photo-gallery-heading h2 { font: 400 34px/1.1 var(--serif); }
+.photo-gallery-heading p { color: #a9c8e2; font: 10px/1.6 var(--mono); }
+.photo-gallery-actions { display: flex; align-items: center; gap: 12px; }
+.photo-gallery button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex-shrink: 0; min-width: 44px; min-height: 44px; padding: 0 12px; border: 1px solid #acd7fa42; border-radius: 5px; color: #cfe9ff; background: #accfff09; font-size: 11px; }
+.photo-gallery button:hover { border-color: #c5e8ff99; background: #accfff18; }
+.photo-gallery button:disabled { opacity: .35; cursor: default; }
+.photo-gallery button svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.photo-gallery-scroll { flex: 1; min-height: 0; padding: 24px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #8bb6db69 #0b192c; }
+.photo-gallery-view { display: flex; flex: 1; flex-direction: column; min-height: 0; }
+.photo-gallery-figure { position: relative; display: grid; flex: 1; min-height: 0; margin: 0; padding: 20px; place-items: center; }
+.photo-gallery-full { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+.photo-gallery-status { position: absolute; inset: auto 20px 30px; padding: 12px; text-align: center; color: #d4eaff; background: #0b192cdd; font-size: 12px; }
+.photo-gallery-controls { display: flex; flex-shrink: 0; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 25px; border-top: 1px solid #afd3f028; }
+.photo-gallery-counter { color: #c2ddf3; font: 11px var(--mono); }
+.photo-gallery-controls button img { width: 24px; height: 24px; }
+@media (min-width: 1400px) { .photo-gallery-grid { columns: 5; } }
+@media (max-width: 1000px) { .hobby-card { padding: 22px; } .photo-gallery-grid { columns: 3; } }
+@media (max-width: 900px) {
+    .hobby-card--football { gap: 28px; padding: 28px; }
+    .hobby-card--music { gap: 26px; padding: 28px; }
+}
+@media (max-width: 750px) {
+    .about-hobbies { padding-block: 70px 45px; }
+    .hobbies-heading { margin-bottom: 32px; }
+    .hobbies-constellation { width: 110px; }
+    .hobbies-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .hobby-card--football, .hobby-card--music { grid-template-columns: 1fr; gap: 28px; }
+    .hobby-football-story { max-width: none; }
+    .hobby-football-memory { max-width: 410px; margin-inline: auto; }
+    .hobby-card--creative { grid-column: span 1; min-height: 210px; }
+    .hobby-card--pixels { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 24px; min-height: 160px; }
+    .hobby-card--pixels .hobby-art { margin-block: 0; }
+    .hobby-card--photography { gap: 20px; padding: 26px; }
+    .hobby-photo-preview { min-height: 210px; }
+    .hobby-photo-preview img { height: 175px; width: 55%; }
+    .hobby-photo-preview img:nth-child(1) { left: -5%; }
+    .hobby-photo-preview img:nth-child(2) { left: 23%; }
+    .hobby-photo-preview img:nth-child(3) { right: -6%; }
+    .hobby-card--photography h3 { font-size: 38px; }
+    .photo-gallery-grid { columns: 2; column-gap: 12px; }
+    .photo-tile { margin-bottom: 12px; padding: 5px 5px 23px; }
+}
+@media (max-width: 500px) {
+    .hobbies-heading .chapter-title { font-size: 62px; }
+    .hobbies-constellation { width: 76px; }
+    .hobby-card { padding: 21px 17px; }
+    .hobby-card h3 { font-size: 29px; }
+    .hobby-card--football { padding: 26px 22px; gap: 30px; }
+    .hobby-football-story h3 { font-size: 44px; }
+    .hobby-football-intro { margin-top: 16px; font-size: 14px; }
+    .hobby-football-award { gap: 12px; margin-top: 24px; padding-top: 22px; }
+    .hobby-football-award > svg { flex-basis: 28px; width: 28px; height: 28px; }
+    .hobby-football-award h4 { font-size: 23px; }
+    .hobby-football-memory .hobby-football-detail { bottom: 18px; padding: 4px; }
+    .hobby-football-detail > span { padding: 8px 1px 3px; font-size: 8px; }
+    .hobby-card--music { padding: 24px 17px 17px; }
+    .hobby-artists { grid-template-columns: 1fr; gap: 12px; }
+    .hobby-artist { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; }
+    .hobby-artist-stage { height: 172px; }
+    .hobby-artist-stage img { width: 168px; height: 168px; }
+    .hobby-artist-stage::after { top: 12px; right: 10px; font-size: 12px; }
+    .hobby-record { top: 22px; left: calc(50% - 67px); width: 134px; }
+    .hobby-record::after { inset: 47px; }
+    .hobby-artist figcaption { padding: 18px 0 18px 16px; border: 0; background: none; }
+    .hobby-artist-group { font-size: clamp(19px, 5.5vw, 27px); }
+    .hobby-artist-favorite { font-size: 9px; }
+    .hobby-art { width: 95px; max-width: 100%; }
+    .hobby-card--photography { grid-template-columns: 1fr; gap: 36px; padding: 27px; }
+    .hobby-card--photography h3 { font-size: 46px; }
+    .hobby-card--photography .hobby-card-top { max-width: none; }
+    .hobby-photo-preview { min-height: 230px; }
+    .hobby-photo-preview img { width: 44%; height: 195px; }
+    .hobby-photo-preview img:nth-child(1) { left: 0; }
+    .hobby-photo-preview img:nth-child(2) { left: 29%; }
+    .hobby-photo-preview img:nth-child(3) { right: -2%; }
+    .photo-gallery { width: calc(100% - 16px); height: calc(100dvh - 16px); border-radius: 12px; }
+    .photo-gallery-bar { gap: 10px; padding: 13px; }
+    .photo-gallery-heading { display: block; }
+    .photo-gallery-heading h2 { font-size: 28px; }
+    .photo-gallery-heading p { margin-top: 5px; font-size: 9px; }
+    .photo-gallery-actions { gap: 8px; }
+    .photo-gallery [data-gallery-back] { max-width: 75px; padding-inline: 8px; font-size: 10px; }
+    .photo-gallery-scroll { padding: 13px; }
+    .photo-gallery-figure { padding: 10px; }
+    .photo-gallery-controls { padding: 12px; gap: 6px; }
+    .photo-gallery-controls button { padding-inline: 8px; font-size: 10px; }
+    .photo-gallery-controls button img { width: 20px; height: 20px; }
+    .photo-gallery-counter { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .hobby-gallery-link, .photo-tile, .hobby-football-memory a { transition: none; } }

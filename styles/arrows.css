@@ -1,0 +1,41 @@
+/* The same PNG, oriented to match each action. The control retains its hit area. */
+.site-arrow { display: inline-block; width: var(--arrow-size, 36px); height: var(--arrow-size, 36px); max-width: none; flex-shrink: 0; object-fit: contain; vertical-align: middle; pointer-events: none; user-select: none; }
+.site-arrow--right { transform: rotate(0deg); }
+.site-arrow--ne { transform: rotate(-45deg); }
+.site-arrow--se { transform: rotate(45deg); }
+.site-arrow--left { transform: rotate(180deg); }
+.site-arrow--up { transform: rotate(-90deg); }
+.site-arrow--down { transform: rotate(90deg); }
+.site-arrow--nw { transform: rotate(-135deg); }
+.site-arrow--sw { transform: rotate(135deg); }
+.button-arrow .site-arrow { --arrow-size: 44px; }
+.project-card-arrow .site-arrow, .contact-path-arrow .site-arrow, .document-illustration .site-arrow { --arrow-size: 40px; }
+.nav-contact .site-arrow, .certificate-card-action .site-arrow, .pdf-upload-button .site-arrow, .project-dialog-footer .site-arrow, .certificate-pdf-direct .site-arrow { --arrow-size: 32px; }
+.chapter-links .site-arrow { --arrow-size: 24px; }
+.back-to-top .site-arrow, summary .site-arrow { --arrow-size: 28px; }
+.home-return .site-arrow { --arrow-size: 32px; }
+/* Oversized PNG canvases must not expand a grid track or sit on a text baseline. */
+.button-arrow, .project-card-arrow, .contact-path-arrow, .nav-contact > span,
+.scroll-icon, .document-illustration > b, .skill-symbol:has(> .site-arrow) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 0;
+    line-height: 0;
+}
+.button-arrow { flex-shrink: 0; }
+.certificate-card-action > span, .chapter-links > a > span:last-child,
+.home-return > span, .button-secondary > span, .projects-endnote a > span,
+.about-toolkit h3 > span, .project-dialog-footer > button > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 0;
+}
+.back-to-top { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+.certificate-pdf-direct .site-arrow { position: static; inset: auto; width: var(--arrow-size); height: var(--arrow-size); }
+.project-source > summary, .certificate-source > summary { list-style: none; }
+.project-source > summary::-webkit-details-marker, .certificate-source > summary::-webkit-details-marker { display: none; }
+.project-source[open] > summary .site-arrow, .certificate-source[open] > summary .site-arrow { transform: rotate(90deg); }

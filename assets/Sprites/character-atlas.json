@@ -1,0 +1,419 @@
+{
+  "image": "character-atlas.png",
+  "character": {
+    "width": 100,
+    "height": 128,
+    "flipIdle": false,
+    "flipJump": true
+  },
+  "frames": [
+    {
+      "x": 8,
+      "y": 8,
+      "w": 653,
+      "h": 1099,
+      "offsetX": 11.410896,
+      "offsetY": -0.945522,
+      "drawW": 77.178209,
+      "drawH": 129.891043,
+      "source": "base.png",
+      "sourceRect": [
+        283,
+        105,
+        653,
+        1099
+      ],
+      "standingHeight": 1083
+    },
+    {
+      "x": 669,
+      "y": 8,
+      "w": 391,
+      "h": 683,
+      "offsetX": 12.482759,
+      "offsetY": -1.535232,
+      "drawW": 75.034483,
+      "drawH": 131.070465,
+      "source": "walk.png",
+      "sourceRect": [
+        142,
+        29,
+        391,
+        683
+      ],
+      "standingHeight": 667
+    },
+    {
+      "x": 1068,
+      "y": 8,
+      "w": 391,
+      "h": 681,
+      "offsetX": 12.482759,
+      "offsetY": -1.151424,
+      "drawW": 75.034483,
+      "drawH": 130.686657,
+      "source": "walk.png",
+      "sourceRect": [
+        866,
+        29,
+        391,
+        681
+      ],
+      "standingHeight": 667
+    },
+    {
+      "x": 1467,
+      "y": 8,
+      "w": 399,
+      "h": 680,
+      "offsetX": 11.715142,
+      "offsetY": -0.95952,
+      "drawW": 76.569715,
+      "drawH": 130.494753,
+      "source": "walk.png",
+      "sourceRect": [
+        1591,
+        29,
+        399,
+        680
+      ],
+      "standingHeight": 667
+    },
+    {
+      "x": 8,
+      "y": 1115,
+      "w": 285,
+      "h": 508,
+      "offsetX": 12.926829,
+      "offsetY": -2.081301,
+      "drawW": 74.146341,
+      "drawH": 132.162602,
+      "source": "jump.png",
+      "sourceRect": [
+        80,
+        192,
+        285,
+        508
+      ],
+      "standingHeight": 492
+    },
+    {
+      "x": 301,
+      "y": 1115,
+      "w": 328,
+      "h": 457,
+      "offsetX": 7.333333,
+      "offsetY": 11.186992,
+      "drawW": 85.333333,
+      "drawH": 118.894309,
+      "source": "jump.png",
+      "sourceRect": [
+        484,
+        242,
+        328,
+        457
+      ],
+      "standingHeight": 492
+    },
+    {
+      "x": 637,
+      "y": 1115,
+      "w": 319,
+      "h": 461,
+      "offsetX": 8.504065,
+      "offsetY": 10.146341,
+      "drawW": 82.99187,
+      "drawH": 119.934959,
+      "source": "jump.png",
+      "sourceRect": [
+        895,
+        122,
+        319,
+        461
+      ],
+      "standingHeight": 492
+    },
+    {
+      "x": 964,
+      "y": 1115,
+      "w": 305,
+      "h": 479,
+      "offsetX": 10.325203,
+      "offsetY": 5.463415,
+      "drawW": 79.349593,
+      "drawH": 124.617886,
+      "source": "jump.png",
+      "sourceRect": [
+        1326,
+        46,
+        305,
+        479
+      ],
+      "standingHeight": 492
+    },
+    {
+      "x": 1277,
+      "y": 1115,
+      "w": 321,
+      "h": 509,
+      "offsetX": 8.243902,
+      "offsetY": -2.341463,
+      "drawW": 83.512195,
+      "drawH": 132.422764,
+      "source": "jump.png",
+      "sourceRect": [
+        1744,
+        151,
+        321,
+        509
+      ],
+      "standingHeight": 492
+    }
+  ],
+  "animations": {
+    "idle": [
+      0
+    ],
+    "walk": [
+      1,
+      2,
+      1,
+      3
+    ],
+    "jump": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "companion": {
+    "image": "cat-companion-atlas.png",
+    "width": 70,
+    "height": 44.8875,
+    "characterOffset": -64.615385,
+    "base": {
+      "x": 159,
+      "y": 4,
+      "w": 280,
+      "h": 180,
+      "offsetX": -35,
+      "offsetY": -44.8875,
+      "drawW": 70,
+      "drawH": 44.8875
+    },
+    "sleeping": [
+      {
+        "x": 447,
+        "y": 4,
+        "w": 280,
+        "h": 176,
+        "offsetX": -35,
+        "offsetY": -43.947826,
+        "drawW": 69.878261,
+        "drawH": 43.826087
+      },
+      {
+        "x": 735,
+        "y": 4,
+        "w": 283,
+        "h": 173,
+        "offsetX": -35.365217,
+        "offsetY": -43.217391,
+        "drawW": 70.730435,
+        "drawH": 43.217391
+      },
+      {
+        "x": 1026,
+        "y": 4,
+        "w": 306,
+        "h": 176,
+        "offsetX": -41.269565,
+        "offsetY": -44.191304,
+        "drawW": 76.452174,
+        "drawH": 44.069565
+      }
+    ],
+    "sleepSequence": [
+      0,
+      1,
+      0,
+      2
+    ],
+    "sleepDelays": [
+      0.95,
+      0.4,
+      0.95,
+      0.4
+    ],
+    "petting": [
+      {
+        "x": 1340,
+        "y": 4,
+        "w": 460,
+        "h": 410,
+        "offsetX": -102.606838,
+        "offsetY": -121.452991,
+        "drawW": 137.606838,
+        "drawH": 122.649573
+      },
+      {
+        "x": 4,
+        "y": 422,
+        "w": 460,
+        "h": 410,
+        "offsetX": -102.606838,
+        "offsetY": -121.452991,
+        "drawW": 137.606838,
+        "drawH": 122.649573
+      },
+      {
+        "x": 472,
+        "y": 422,
+        "w": 460,
+        "h": 410,
+        "offsetX": -102.606838,
+        "offsetY": -121.452991,
+        "drawW": 137.606838,
+        "drawH": 122.649573
+      },
+      {
+        "x": 940,
+        "y": 422,
+        "w": 460,
+        "h": 411,
+        "offsetX": -102.606838,
+        "offsetY": -121.752137,
+        "drawW": 137.606838,
+        "drawH": 122.948718
+      },
+      {
+        "x": 1408,
+        "y": 422,
+        "w": 460,
+        "h": 411,
+        "offsetX": -102.606838,
+        "offsetY": -121.752137,
+        "drawW": 137.606838,
+        "drawH": 122.948718
+      },
+      {
+        "x": 4,
+        "y": 841,
+        "w": 460,
+        "h": 411,
+        "offsetX": -102.606838,
+        "offsetY": -121.752137,
+        "drawW": 137.606838,
+        "drawH": 122.948718
+      }
+    ],
+    "pettingDelays": [
+      0.23,
+      0.23,
+      0.23,
+      0.23,
+      0.23,
+      0.23
+    ],
+    "z": {
+      "x": 4,
+      "y": 4,
+      "w": 147,
+      "h": 169,
+      "offsetX": 0,
+      "offsetY": 0,
+      "drawW": 1,
+      "drawH": 1.14966
+    },
+    "props": {
+      "bed": {
+        "x": 472,
+        "y": 841,
+        "w": 640,
+        "h": 306,
+        "offsetX": -80,
+        "offsetY": -76.594134,
+        "drawW": 160,
+        "drawH": 76.594134
+      },
+      "bedFront": {
+        "x": 1120,
+        "y": 841,
+        "w": 640,
+        "h": 110,
+        "offsetX": -80,
+        "offsetY": -27.549669,
+        "drawW": 160,
+        "drawH": 27.549669
+      },
+      "bedRise": 30.274361400189214,
+      "table": {
+        "x": 4,
+        "y": 1260,
+        "w": 400,
+        "h": 146,
+        "offsetX": -50,
+        "offsetY": -36.429216,
+        "drawW": 100,
+        "drawH": 36.429216
+      },
+      "tableSurface": 32.64201983769161,
+      "photo": {
+        "x": 412,
+        "y": 1260,
+        "w": 176,
+        "h": 192,
+        "offsetX": -22,
+        "offsetY": -47.951852,
+        "drawW": 44,
+        "drawH": 47.951852
+      }
+    },
+    "scenery": {
+      "house": {
+        "x": 596,
+        "y": 1260,
+        "w": 1221,
+        "h": 1099,
+        "offsetX": -215,
+        "offsetY": -387.035217,
+        "drawW": 430,
+        "drawH": 387.035217
+      },
+      "smoke": {
+        "x": 4,
+        "y": 2367,
+        "w": 250,
+        "h": 202,
+        "offsetX": -19.369369,
+        "offsetY": -71.842752,
+        "drawW": 88.042588,
+        "drawH": 71.138411
+      },
+      "chimney": {
+        "x": -109.70106470106471,
+        "y": -364.49631449631454
+      },
+      "door": {
+        "left": -23.419328419328423,
+        "top": -145.79852579852582,
+        "width": 68.67321867321868,
+        "height": 102.12940212940214
+      },
+      "background": "backgroud-house.png",
+      "picture": "important.png",
+      "sign": {
+        "x": 262,
+        "y": 2367,
+        "w": 720,
+        "h": 599,
+        "offsetX": -90,
+        "offsetY": -149.692308,
+        "drawW": 180,
+        "drawH": 149.692308
+      }
+    }
+  }
+}

@@ -1,0 +1,165 @@
+/* Chapters of a moonlit field journal. All copy stays in the original HTML. */
+.about-page .chapter-label { color: #a4bfdd; font-family: var(--sans); font-size: 10px; letter-spacing: .16em; }
+.about-page .chapter-label > span { color: #c0e6ff; }
+.about-page .chapter-title { color: #edf4fc; }
+.about-page .chapter-title em { color: #afd8f5; }
+.about-page .chapter-description { color: #b0c2d7; text-wrap: pretty; }
+
+/* A quiet opening spread: the statement becomes the focal point of the letter. */
+.about-page .about-story { position: relative; isolation: isolate; grid-template-columns: .95fr 1.05fr; align-items: center; gap: 76px; padding-block: 105px 92px; }
+.about-page .about-story::before { content: ''; position: absolute; z-index: -1; inset: 16% 0 6%; pointer-events: none; background: radial-gradient(ellipse at 81% 50%, #3b7fc61a, transparent 65%); }
+.about-page .story-heading { padding-left: 26px; border-left: 1px solid #99c9ed32; }
+.about-page .story-heading::before { content: ''; position: absolute; left: -4px; top: 0; width: 7px; height: 7px; background: #b8e1fa; box-shadow: 0 0 18px #91cbf452; transform: rotate(45deg); }
+.about-page .story-heading h2 { max-width: 470px; margin-top: 0; color: #e2edf8; font-size: clamp(42px, 4.6vw, 65px); line-height: 1.02; }
+.about-page .story-heading h2 em { color: #aed9f6; }
+.about-page .story-subtitle { color: #a5bcd8; font-size: 22px; }
+.about-page .story-star { width: 38px; height: 38px; margin-top: 34px; color: transparent; background: url('../assets/pixel/star.svg') center / contain no-repeat; image-rendering: pixelated; animation: none; }
+.about-page .story-body { position: relative; padding: 35px 36px 31px; border: 1px solid #b5d9f32a; border-radius: 24px 8px 24px 8px; background: linear-gradient(145deg, #142c45c9, #0b1a2bc9); box-shadow: inset 0 1px 0 #d4eaff09, 0 22px 60px -36px #0008; }
+.about-page .story-body::before { content: '“'; position: absolute; right: 24px; top: -26px; color: #aaccec; font: 88px/1 var(--serif); pointer-events: none; }
+.about-page .story-body > p { color: #b3c5d9; font-size: 13px; line-height: 1.95; }
+.about-page .story-body > .story-opening { max-width: 410px; padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid #bedaf020; color: #e1eff8; font: 400 30px/1.26 var(--serif); text-wrap: pretty; }
+.about-page .profile-values { gap: 8px; padding-top: 0; margin-top: 25px; border: 0; font: 10px/1.5 var(--sans); color: #c0d9ed; }
+.about-page .profile-values > span { padding: 7px 10px; border: 1px solid #acd2ec26; border-radius: 5px; background: #a7d8ff07; }
+.about-page .profile-values > span::before { content: '✦'; display: inline-block; margin-right: 7px; color: #a8d4f0; font-size: 9px; }
+
+/* Eight small illuminated pages, with alternating corners and a clear reading order. */
+.about-page .about-skills { isolation: isolate; padding-block: 94px 100px; border-block-color: #a9cdef17; background: radial-gradient(ellipse at 5% 35%, #2b5f9d1c, transparent 52%), linear-gradient(180deg, #10213b19, #0c1b301f 65%, transparent); }
+.about-page .skills-layout { position: relative; grid-template-columns: .7fr 1.6fr; gap: 70px; }
+.about-page .skills-heading { top: 112px; }
+.about-page .skills-heading .chapter-title { margin-block: 0 26px; font-size: clamp(54px, 5.5vw, 76px); }
+.about-page .skills-heading .chapter-description { max-width: 250px; }
+.about-page .skills-compass { width: 150px; height: 112px; margin: 52px 0 0; background: url('../assets/pixel/orbit.svg') center / contain no-repeat; opacity: .8; }
+.about-page .skills-compass > span, .about-page .skills-compass > i, .about-page .skills-compass > b { display: none; }
+.about-page .skills-compass::before { inset: 0; width: auto; height: auto; border-radius: 50%; background: radial-gradient(ellipse, #75bfff1a, transparent 66%); }
+.about-page .skills-compass::after { inset: 32px 51px; width: auto; height: auto; background: url('../assets/pixel/star.svg') center / contain no-repeat; image-rendering: pixelated; }
+.about-page .skills-list { gap: 18px; padding-bottom: 18px; }
+.about-page .skill-entry { padding: 24px 24px 27px; border: 1px solid #a8cceb26; border-radius: 17px 5px 17px 17px; background: linear-gradient(145deg, #142b45df, #0b1c30e3); box-shadow: inset 0 1px 0 #d5efff07, 0 12px 35px -27px #0009; transition: border-color .3s ease, box-shadow .3s ease; }
+.about-page .skill-entry:nth-child(even) { margin-top: 18px; margin-bottom: -18px; border-radius: 5px 17px 17px 17px; }
+.about-page .skill-entry::before { inset: 0; border-radius: inherit; background: radial-gradient(210px circle at var(--card-x, 50%) var(--card-y, 30%), #a0cdff16, transparent 78%); }
+.about-page .skill-entry::after { content: ''; position: absolute; bottom: 13px; right: 14px; width: 9px; height: 9px; background: url('../assets/pixel/star.svg') center / contain no-repeat; opacity: .45; pointer-events: none; }
+.about-page .skill-entry:hover { border-color: #b6ddff65; box-shadow: inset 0 1px 0 #d5efff0c, 0 14px 35px -27px #0009, 0 0 24px -14px #6eaaf461; }
+.about-page .skill-entry-top { margin-bottom: 24px; }
+.about-page .skill-symbol { position: relative; isolation: isolate; width: 32px; height: 32px; border: 0; border-radius: 0; color: #c2e6ff; background: none; font-size: 23px; }
+.about-page .skill-symbol::before { content: ''; position: absolute; inset: 1px; z-index: -1; border: 1px solid #a9d9fb30; border-radius: 4px; background: linear-gradient(135deg, #7ab5ec16, #b9b6ef05); transform: rotate(45deg); }
+.about-page .skill-entry:hover .skill-symbol { background: none; box-shadow: none; }
+.about-page .skill-index { color: #a3bed8; font-size: 9px; }
+.about-page .skill-entry h3 { color: #e2eef9; font-size: 30px; line-height: 1.08; text-wrap: pretty; }
+.about-page .skill-entry p { max-width: 290px; margin-top: 15px; color: #afc2d6; font-size: 12px; line-height: 1.85; }
+.about-page .about-toolkit { grid-template-columns: 82px minmax(0, 1fr); gap: 18px; margin-top: 27px; padding: 25px 23px; border: 1px solid #a8cceb26; border-radius: 8px 20px 8px 20px; background: linear-gradient(125deg, #162a43c9, #0d1b2dba); }
+.about-page .about-toolkit h3 { margin-top: 3px; color: #e4eef8; font-size: 27px; }
+.about-page .about-toolkit h3 > span { color: #b8ddf5; }
+.about-page .about-toolkit li { padding: 8px 11px; border-color: #b2d5f42b; border-radius: 4px; color: #bed7eb; background: #c3e0ff05; font: 10px/1.5 var(--sans); }
+.about-page .about-toolkit li:hover { border-color: #b2d5f45e; background: #c3e0ff0d; }
+
+/* A constellation route: the illuminated line follows real scroll progress. */
+.about-page .about-experience { position: relative; padding-block: 105px 45px; }
+.about-page .experience-heading { align-items: flex-end; gap: 55px; margin-bottom: 54px; }
+.about-page .experience-heading .chapter-description { max-width: 285px; }
+.about-page .experience-journey { padding-bottom: 6px; }
+.about-page .journey-line { left: 50px; top: 50px; bottom: 99px; width: 1px; background: #a5c7e327; }
+.about-page .journey-line > span { background: linear-gradient(#6c9ccb, #c3e7ff 45%, #9cabe6); box-shadow: 0 0 12px #a3d7ff35; }
+.about-page .journey-line > span::after { content: ''; position: absolute; bottom: 0; left: -2px; width: 5px; height: 5px; background: #c7ebff; box-shadow: 0 0 12px #acd7ff70; }
+.about-page .experience-entry { grid-template-columns: 52px .62fr 1.38fr; gap: 34px; padding: 24px 25px 33px 24px; border: 1px solid #9bc4e51b; border-radius: 22px 7px 22px 7px; background: linear-gradient(100deg, #12263e9c, #10223869 55%, #0c1a2d4d); }
+.about-page .experience-entry:not(:last-child) { margin-bottom: 26px; }
+.about-page .experience-entry:nth-child(even) { border-radius: 7px 22px 7px 22px; }
+.about-page .experience-node { width: 52px; height: 52px; border-color: #a9d1f04a; color: #c8e5f7; background: #102238; box-shadow: 0 0 0 6px #0b192b, inset 0 0 16px #72aee815; }
+.about-page .experience-entry.is-visible .experience-node { border-color: #b9e1fb94; box-shadow: 0 0 0 6px #0b192b, 0 0 24px #7fbff71c, inset 0 0 16px #72aee815; }
+.about-page .experience-node::after { content: ''; position: absolute; right: 2px; top: 2px; width: 5px; height: 5px; background: #bedff3; box-shadow: 0 0 9px #a8d9ff55; transform: rotate(45deg); }
+.about-page .experience-node::before { content: ''; width: 5px; height: 5px; background: #bedff3; transform: rotate(45deg); }
+.about-page .experience-heading .chapter-title { margin-top: 0; }
+.about-page .experience-category { gap: 28px; padding-top: 17px; }
+.about-page .experience-category .chapter-label { color: #a9c5df; font-size: 8px; letter-spacing: .11em; }
+.about-page .experience-symbol { color: #a9d4ee; font-size: 29px; }
+.about-page .experience-copy { padding-top: 6px; }
+.about-page .experience-copy h3 { color: #e3eef8; font-size: 38px; }
+.about-page .experience-copy h3 em { color: #b1d8f0; }
+.about-page .experience-copy p { margin-top: 20px; color: #b0c3d7; font-size: 13px; line-height: 1.95; }
+.about-page .experience-entry:not(:last-child) .experience-copy::after { display: none; }
+.about-page .reveal { filter: none; transition: opacity .75s var(--about-ease), transform .85s var(--about-ease); }
+
+@media (max-width: 1100px) {
+    .about-page .about-story { gap: 45px; }
+    .about-page .story-body { padding: 31px 28px 27px; }
+    .about-page .skills-layout { grid-template-columns: .7fr 1.5fr; gap: 40px; }
+    .about-page .skill-entry { padding-inline: 20px; }
+    .about-page .skill-entry h3 { font-size: 28px; }
+    .about-page .experience-entry { grid-template-columns: 52px .56fr 1.44fr; gap: 26px; }
+    .about-page .experience-copy h3 { font-size: 34px; }
+}
+@media (max-width: 900px) {
+    .about-page .skills-layout { grid-template-columns: 1fr; gap: 36px; }
+    .about-page .skills-heading { position: relative; top: auto; padding-right: 170px; }
+    .about-page .skills-heading .chapter-title { font-size: 68px; }
+    .about-page .skills-heading .chapter-title br { display: initial; }
+    .about-page .skills-heading .chapter-description { max-width: 360px; }
+    .about-page .skills-compass { position: absolute; top: 26px; right: 0; margin: 0; }
+    .about-page .skill-entry { padding-inline: 26px; }
+    .about-page .experience-heading .chapter-title { font-size: 64px; }
+    .about-page .experience-entry { grid-template-columns: 52px minmax(0, 1fr); gap: 14px 27px; }
+    .about-page .experience-node { grid-column: 1; grid-row: 1 / 3; }
+    .about-page .experience-category { grid-column: 2; padding-top: 8px; }
+    .about-page .experience-symbol { display: none; }
+    .about-page .experience-copy { grid-column: 2; padding-top: 0; }
+}
+@media (max-width: 700px) {
+    .about-page .about-story { grid-template-columns: 1fr; gap: 40px; padding-block: 75px 70px; }
+    .about-page .story-heading { padding-left: 24px; }
+    .about-page .story-heading h2 { font-size: clamp(44px, 8vw, 60px); }
+    .about-page .story-star { position: absolute; right: 8px; top: 0; bottom: auto; width: 25px; height: 25px; margin: 0; }
+    .about-page .story-subtitle { font-size: 21px; }
+    .about-page .story-body { padding: 31px 29px 28px; }
+    .about-page .about-skills { padding-block: 72px 76px; }
+    .about-page .skills-heading { padding-right: 105px; }
+    .about-page .skills-heading .chapter-title { font-size: clamp(48px, 9vw, 65px); }
+    .about-page .skills-compass { top: 44px; width: 92px; height: 75px; }
+    .about-page .skills-compass::after { inset: 21px 32px; }
+    .about-page .skills-list { gap: 15px; }
+    .about-page .skill-entry { padding: 23px 20px 26px; }
+    .about-page .skill-entry h3 { font-size: 27px; }
+    .about-page .about-toolkit { grid-template-columns: 1fr; gap: 18px; padding: 25px; }
+    .about-page .about-experience { padding-block: 75px 35px; }
+    .about-page .experience-heading { flex-direction: column; align-items: flex-start; gap: 25px; margin-bottom: 38px; }
+    .about-page .experience-heading .chapter-title { font-size: clamp(46px, 8.7vw, 62px); }
+    .about-page .experience-heading .chapter-description { max-width: 380px; font-size: 13px; }
+}
+@media (max-width: 540px) {
+    .about-page .story-body { padding: 30px 24px 25px; }
+    .about-page .story-body > .story-opening { font-size: 28px; }
+    .about-page .profile-values { gap: 6px; }
+    .about-page .profile-values > span { padding-inline: 8px; }
+    .about-page .skills-heading { padding-right: 0; }
+    .about-page .skills-heading .chapter-title { max-width: 270px; font-size: 59px; }
+    .about-page .skills-heading .chapter-title br { display: initial; }
+    .about-page .skills-heading .chapter-description { max-width: 270px; }
+    .about-page .skills-compass { width: 78px; height: 65px; top: 52px; right: 0; opacity: .6; }
+    .about-page .skills-compass::after { inset: 17px 27px; }
+    .about-page .skills-list { grid-template-columns: 1fr; gap: 14px; padding-bottom: 0; }
+    .about-page .skill-entry, .about-page .skill-entry:nth-child(even) { margin: 0; padding: 25px 27px 29px; }
+    .about-page .skill-entry-top { margin-bottom: 21px; }
+    .about-page .skill-entry h3 { max-width: 260px; font-size: 31px; }
+    .about-page .skill-entry h3 br { display: initial; }
+    .about-page .skill-entry p { max-width: 300px; font-size: 12px; }
+    .about-page .experience-entry { grid-template-columns: 36px minmax(0, 1fr); gap: 12px 20px; padding: 21px 20px 26px 16px; }
+    .about-page .experience-node { width: 36px; height: 36px; font-size: 9px; }
+    .about-page .experience-node::after { width: 4px; height: 4px; }
+    .about-page .journey-line { left: 34px; top: 40px; bottom: 110px; }
+    .about-page .experience-category { padding-top: 7px; }
+    .about-page .experience-copy h3 { font-size: 30px; }
+    .about-page .experience-copy p { margin-top: 17px; font-size: 12px; }
+    .about-page .experience-entry:not(:last-child) { margin-bottom: 21px; }
+}
+@media (max-width: 359px) {
+    .about-page .skills-heading .chapter-title { font-size: 53px; }
+    .about-page .skills-compass { right: 0; width: 60px; height: 55px; }
+    .about-page .skills-compass::after { inset: 15px 21px; }
+    .about-page .story-body { padding-inline: 21px; }
+    .about-page .skill-entry, .about-page .skill-entry:nth-child(even) { padding-inline: 23px; }
+    .about-page .experience-entry { gap: 12px 16px; padding-right: 15px; }
+    .about-page .experience-copy h3 { font-size: 27px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .about-page .skill-entry, .about-page .skill-entry::before, .about-page .about-toolkit li { transition: none; }
+    .about-page .reveal { transform: none; opacity: 1; transition: none; }
+}
+html[data-motion="paused"] .about-page .skill-entry,
+html[data-motion="paused"] .about-page .skill-entry::before { transition: none; }

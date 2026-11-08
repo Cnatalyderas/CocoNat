@@ -1,0 +1,380 @@
+[
+  {
+    "number": "01",
+    "source": "20250108_063522.jpg",
+    "width": 560,
+    "height": 420,
+    "alt": "Sunset over the shoreline",
+    "thumbnail": "thumbs/01.webp",
+    "full": "full/01.webp"
+  },
+  {
+    "number": "02",
+    "source": "20250208_114117.jpg",
+    "width": 560,
+    "height": 420,
+    "alt": "Sunlight through a canopy of green branches",
+    "thumbnail": "thumbs/02.webp",
+    "full": "full/02.webp"
+  },
+  {
+    "number": "03",
+    "source": "20250328_123529.jpg",
+    "width": 560,
+    "height": 747,
+    "alt": "White pavilion behind tree branches",
+    "thumbnail": "thumbs/03.webp",
+    "full": "full/03.webp"
+  },
+  {
+    "number": "04",
+    "source": "20250507_181527.jpg",
+    "width": 560,
+    "height": 283,
+    "alt": "The moon above pink clouds and dark tree branches",
+    "thumbnail": "thumbs/04.webp",
+    "full": "full/04.webp"
+  },
+  {
+    "number": "05",
+    "source": "20250525_140938.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "An arrangement of pastel balloons",
+    "thumbnail": "thumbs/05.webp",
+    "full": "full/05.webp"
+  },
+  {
+    "number": "06",
+    "source": "20250713_094839.jpg",
+    "width": 422,
+    "height": 750,
+    "alt": "Sunlight on a large green leaf",
+    "thumbnail": "thumbs/06.webp",
+    "full": "full/06.webp"
+  },
+  {
+    "number": "07",
+    "source": "20250716_180304.jpg",
+    "width": 560,
+    "height": 315,
+    "alt": "Golden sunset behind trees",
+    "thumbnail": "thumbs/07.webp",
+    "full": "full/07.webp"
+  },
+  {
+    "number": "08",
+    "source": "20250723_093341.jpg",
+    "width": 422,
+    "height": 750,
+    "alt": "An orange and white cat in a tree",
+    "thumbnail": "thumbs/08.webp",
+    "full": "full/08.webp"
+  },
+  {
+    "number": "09",
+    "source": "20250725_123907.jpg",
+    "width": 411,
+    "height": 750,
+    "alt": "Bouquets of colorful flowers",
+    "thumbnail": "thumbs/09.webp",
+    "full": "full/09.webp"
+  },
+  {
+    "number": "10",
+    "source": "20250805_114944.jpg",
+    "width": 422,
+    "height": 750,
+    "alt": "Pale pink flowers among green leaves",
+    "thumbnail": "thumbs/10.webp",
+    "full": "full/10.webp"
+  },
+  {
+    "number": "11",
+    "source": "20250806_162305.jpg",
+    "width": 422,
+    "height": 750,
+    "alt": "Tall trees against a blue sky",
+    "thumbnail": "thumbs/11.webp",
+    "full": "full/11.webp"
+  },
+  {
+    "number": "12",
+    "source": "20250915_141916.jpg",
+    "width": 560,
+    "height": 708,
+    "alt": "Shoes on sunlit grass",
+    "thumbnail": "thumbs/12.webp",
+    "full": "full/12.webp"
+  },
+  {
+    "number": "13",
+    "source": "20250916_154636.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "Small green leaves with reddish centers",
+    "thumbnail": "thumbs/13.webp",
+    "full": "full/13.webp"
+  },
+  {
+    "number": "14",
+    "source": "20250917_180019.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "Mountains beneath a cloudy evening sky",
+    "thumbnail": "thumbs/14.webp",
+    "full": "full/14.webp"
+  },
+  {
+    "number": "15",
+    "source": "20250925_122859.jpg",
+    "width": 422,
+    "height": 750,
+    "alt": "Green leaves with Plant Bud lettering",
+    "thumbnail": "thumbs/15.webp",
+    "full": "full/15.webp"
+  },
+  {
+    "number": "16",
+    "source": "20251015_151105.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "A tabby cat resting outdoors",
+    "thumbnail": "thumbs/16.webp",
+    "full": "full/16.webp"
+  },
+  {
+    "number": "17",
+    "source": "20251021_180017.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "Illuminated holiday decorations at night",
+    "thumbnail": "thumbs/17.webp",
+    "full": "full/17.webp"
+  },
+  {
+    "number": "18",
+    "source": "20251028_173218.jpg",
+    "width": 560,
+    "height": 315,
+    "alt": "Orange sunset clouds over rooftops",
+    "thumbnail": "thumbs/18.webp",
+    "full": "full/18.webp"
+  },
+  {
+    "number": "19",
+    "source": "20251029_173608.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "Pink clouds above treetops at dusk",
+    "thumbnail": "thumbs/19.webp",
+    "full": "full/19.webp"
+  },
+  {
+    "number": "20",
+    "source": "20251029_173613.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "Pink evening sky framed by trees",
+    "thumbnail": "thumbs/20.webp",
+    "full": "full/20.webp"
+  },
+  {
+    "number": "21",
+    "source": "20251030_120218.jpg",
+    "width": 422,
+    "height": 750,
+    "alt": "A painted portrait mural beside an outdoor path",
+    "thumbnail": "thumbs/21.webp",
+    "full": "full/21.webp"
+  },
+  {
+    "number": "22",
+    "source": "20251030_120424.jpg",
+    "width": 422,
+    "height": 750,
+    "alt": "Tall conifers against a blue sky",
+    "thumbnail": "thumbs/22.webp",
+    "full": "full/22.webp"
+  },
+  {
+    "number": "23",
+    "source": "20251030_120855.jpg",
+    "width": 422,
+    "height": 750,
+    "alt": "A wooden bench beneath large trees",
+    "thumbnail": "thumbs/23.webp",
+    "full": "full/23.webp"
+  },
+  {
+    "number": "24",
+    "source": "20251030_121046.jpg",
+    "width": 422,
+    "height": 750,
+    "alt": "A park path beside palms and an open lawn",
+    "thumbnail": "thumbs/24.webp",
+    "full": "full/24.webp"
+  },
+  {
+    "number": "25",
+    "source": "20251128_153033.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "Pink flowers against a bright blue sky",
+    "thumbnail": "thumbs/25.webp",
+    "full": "full/25.webp"
+  },
+  {
+    "number": "26",
+    "source": "20251202_131521.jpg",
+    "width": 422,
+    "height": 750,
+    "alt": "A wall decorated with vinyl records and a guitar",
+    "thumbnail": "thumbs/26.webp",
+    "full": "full/26.webp"
+  },
+  {
+    "number": "27",
+    "source": "20251202_134020.jpg",
+    "width": 422,
+    "height": 750,
+    "alt": "A colorful painted street decoration",
+    "thumbnail": "thumbs/27.webp",
+    "full": "full/27.webp"
+  },
+  {
+    "number": "28",
+    "source": "20260103_085313.heic",
+    "width": 392,
+    "height": 750,
+    "alt": "A white church beneath a clear blue sky",
+    "thumbnail": "thumbs/28.webp",
+    "full": "full/28.webp"
+  },
+  {
+    "number": "29",
+    "source": "20260125_115214.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "A stream flowing between rocks",
+    "thumbnail": "thumbs/29.webp",
+    "full": "full/29.webp"
+  },
+  {
+    "number": "30",
+    "source": "20260130_090053(1).heic",
+    "width": 560,
+    "height": 315,
+    "alt": "Translucent green leaves against sunlight",
+    "thumbnail": "thumbs/30.webp",
+    "full": "full/30.webp"
+  },
+  {
+    "number": "31",
+    "source": "20260130_090053.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "Sunlight filtering through overlapping green leaves",
+    "thumbnail": "thumbs/31.webp",
+    "full": "full/31.webp"
+  },
+  {
+    "number": "32",
+    "source": "20260130_110855.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "A garden beside a yellow building",
+    "thumbnail": "thumbs/32.webp",
+    "full": "full/32.webp"
+  },
+  {
+    "number": "33",
+    "source": "20260303_173727.heic",
+    "width": 560,
+    "height": 315,
+    "alt": "Sunset behind a field and trees",
+    "thumbnail": "thumbs/33.webp",
+    "full": "full/33.webp"
+  },
+  {
+    "number": "34",
+    "source": "20260306_180234.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "Orange clouds above a quiet street",
+    "thumbnail": "thumbs/34.webp",
+    "full": "full/34.webp"
+  },
+  {
+    "number": "35",
+    "source": "20260316_071735.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "A sunlit courtyard with large shade trees",
+    "thumbnail": "thumbs/35.webp",
+    "full": "full/35.webp"
+  },
+  {
+    "number": "36",
+    "source": "20260407_174329.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "A quiet park path lined with trees",
+    "thumbnail": "thumbs/36.webp",
+    "full": "full/36.webp"
+  },
+  {
+    "number": "37",
+    "source": "20260417_180456.heic",
+    "width": 433,
+    "height": 750,
+    "alt": "A white flower with orange edges",
+    "thumbnail": "thumbs/37.webp",
+    "full": "full/37.webp"
+  },
+  {
+    "number": "38",
+    "source": "20260729_093945.jpg",
+    "width": 422,
+    "height": 750,
+    "alt": "Stepping stones crossing shallow green water",
+    "thumbnail": "thumbs/38.webp",
+    "full": "full/38.webp"
+  },
+  {
+    "number": "39",
+    "source": "20260729_094503.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "Wooden chairs beneath framed wall art",
+    "thumbnail": "thumbs/39.webp",
+    "full": "full/39.webp"
+  },
+  {
+    "number": "40",
+    "source": "20260729_095921.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "A sunlit interior with plants and large windows",
+    "thumbnail": "thumbs/40.webp",
+    "full": "full/40.webp"
+  },
+  {
+    "number": "41",
+    "source": "20260812_181525.heic",
+    "width": 422,
+    "height": 750,
+    "alt": "Golden clouds above cars and rooftops",
+    "thumbnail": "thumbs/41.webp",
+    "full": "full/41.webp"
+  },
+  {
+    "number": "42",
+    "source": "IMG-20260212-WA0054.jpg",
+    "width": 560,
+    "height": 747,
+    "alt": "A blue outdoor structure framed with climbing plants",
+    "thumbnail": "thumbs/42.webp",
+    "full": "full/42.webp"
+  }
+]

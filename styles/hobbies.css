@@ -52,6 +52,14 @@
 .hobby-artist-group { display: block; color: var(--artist-accent); font: 400 clamp(20px, 2vw, 27px)/1.15 var(--serif); letter-spacing: -.015em; }
 .hobby-artist-favorite { display: block; margin-top: 8px; color: #afc8df; font: 10px/1.6 var(--mono); }
 .hobby-artist-favorite em { color: #e7f2ff; font-style: normal; }
+.hobby-artist-decoration { --decoration-tilt: -6deg; position: absolute; z-index: 3; bottom: 14px; left: 14px; width: clamp(44px, 5vw, 72px); aspect-ratio: 1; pointer-events: none; animation: hobby-decoration-float 5s ease-in-out infinite; }
+.hobby-artist-decoration::before { content: ''; position: absolute; inset: -10px; border-radius: 50%; background: radial-gradient(circle, #e8a75a28, transparent 70%); }
+.hobby-artist-decoration img { position: relative; display: block; width: 100%; height: auto; image-rendering: pixelated; filter: drop-shadow(0 4px 5px #020b1b80); }
+.hobby-artist-decoration--rockstar { --decoration-tilt: 8deg; bottom: 10px; left: 10px; width: clamp(50px, 5.8vw, 84px); animation-delay: -2.5s; }
+.hobby-artist-decoration--rockstar::before { background: radial-gradient(circle, #efc4dc33, transparent 70%); }
+.hobby-artist-decoration--rockstar img { filter: drop-shadow(0 0 6px #c2b4ed40) drop-shadow(0 4px 5px #020b1b70); }
+@keyframes hobby-decoration-float { 0%, 100% { transform: translateY(0) rotate(var(--decoration-tilt)); } 50% { transform: translateY(-4px) rotate(calc(var(--decoration-tilt) + 4deg)); } }
+html[data-motion="paused"] .hobby-artist-decoration { animation-play-state: paused; }
 .hobby-card--creative { grid-column: span 2; min-height: 225px; overflow: hidden; }
 .hobby-art { display: block; width: 120px; height: 96px; margin: 22px 0 0 auto; overflow: visible; }
 .hobby-art--origami { width: 132px; }
@@ -150,6 +158,8 @@ html.photo-gallery-open { overflow: hidden; scrollbar-gutter: stable; }
     .hobby-artist figcaption { padding: 18px 0 18px 16px; border: 0; background: none; }
     .hobby-artist-group { font-size: clamp(19px, 5.5vw, 27px); }
     .hobby-artist-favorite { font-size: 9px; }
+    .hobby-artist-decoration { bottom: 10px; left: 18px; width: 44px; }
+    .hobby-artist-decoration--rockstar { bottom: 6px; left: 17px; width: 50px; }
     .hobby-art { width: 95px; max-width: 100%; }
     .hobby-card--photography { grid-template-columns: 1fr; gap: 36px; padding: 27px; }
     .hobby-card--photography h3 { font-size: 46px; }
@@ -174,3 +184,4 @@ html.photo-gallery-open { overflow: hidden; scrollbar-gutter: stable; }
     .photo-gallery-counter { font-size: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .hobby-gallery-link, .photo-tile, .hobby-football-memory a { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .hobby-artist-decoration { animation: none; transform: rotate(var(--decoration-tilt)); } }

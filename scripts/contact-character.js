@@ -123,11 +123,13 @@
         let factBag = [];
         let lastFact = -1;
         let photoOpen = false;
+        let presentation = null;
         root.dataset.scene = scene;
 
         const pressed = action => [...keys].some(key => actions.get(key) === action)
             || [...pointers.values()].includes(action) || buttonKeys.has(action);
-        const gameUnavailable = () => destroyed || !loaded || !visible || !pageActive || document.hidden
+        const gameUnavailable = () => destroyed || !loaded || (!visible && !presentation?.active) || !pageActive || document.hidden
+            || Boolean(presentation?.required && (!presentation.active || !presentation.landscape))
             || html.classList.contains('project-dialog-open') || html.classList.contains('certificate-dialog-open')
             || html.classList.contains('photo-gallery-open');
         const blocked = () => gameUnavailable() || photoOpen;
@@ -209,17 +211,21 @@
             }
             if (!companion) return;
             const offscreen = (left, size) => left + size < cameraX || left > cameraX + viewportWidth;
-            const hitWidth = Math.max(48, companion.width * scale + 10);
-            const hitHeight = Math.max(48, companion.height * scale + 8);
+            const touchScale = presentation?.active ? 1 / presentation.scale : 1;
+            const hitWidth = Math.max(48 * touchScale, companion.width * scale + 10);
+            const hitHeight = Math.max(48 * touchScale, companion.height * scale + 8);
             placeControl(catButton, catX - hitWidth / 2 - cameraX, catFloor - hitHeight, hitWidth, hitHeight);
             catButton.hidden = scene !== 'inside' || offscreen(catX - hitWidth / 2, hitWidth);
             const photo = companion.props.photo;
-            const photoWidth = Math.max(44, photo.drawW * scale);
-            const photoHeight = Math.max(44, photo.drawH * scale);
+            const photoWidth = Math.max(44 * touchScale, photo.drawW * scale);
+            const photoHeight = Math.max(44 * touchScale, photo.drawH * scale);
             placeControl(photoLink, tableX - photoWidth / 2 - cameraX,
                 floor - companion.props.tableSurface * scale - photoHeight, photoWidth, photoHeight);
             photoLink.hidden = scene !== 'inside' || offscreen(tableX - photoWidth / 2, photoWidth);
-            placeControl(doorButton, doorRect.left - cameraX, doorRect.top, Math.max(44, doorRect.width), Math.max(48, doorRect.height));
+            const doorWidth = Math.max(44 * touchScale, doorRect.width);
+            const doorHeight = Math.max(48 * touchScale, doorRect.height);
+            placeControl(doorButton, doorRect.left - (doorWidth - doorRect.width) / 2 - cameraX,
+                doorRect.top - (doorHeight - doorRect.height) / 2, doorWidth, doorHeight);
             doorButton.hidden = scene !== 'outside' || offscreen(doorRect.left, doorRect.width);
             doorButton.classList.toggle('is-near', Boolean(nearDoor()));
             exitButton.hidden = !canExit();
@@ -306,7 +312,13 @@
             cancelPetting();
             travel = null;
             keys.clear();
+            const capturedPointers = [...pointers.keys()];
             pointers.clear();
+            capturedPointers.forEach(pointer => buttons.forEach(button => {
+                try {
+                    if (button.hasPointerCapture(pointer)) button.releasePointerCapture(pointer);
+                } catch { /* The browser may already have cancelled this touch during rotation. */ }
+            }));
             buttonKeys.clear();
             jumpBuffer = 0;
             vx = 0;
@@ -653,7 +665,7 @@
         }
 
         function resize() {
-            if (destroyed) return;
+            if (destroyed || presentation?.required && !presentation.active) return;
             const previousWidth = width;
             const previousSceneScale = sceneScale;
             const stageWidth = Math.max(1, stage.clientWidth);
@@ -880,6 +892,11 @@
             });
         }
 
+        presentation = createMobilePresentation(root, stage, {
+            change() { clearInput(); resize(); sync(); },
+            exit() { closePhoto(false); clearInput(); gameAudio.pause(); stopFrame(); }
+        });
+
         root.addEventListener('keydown', keyDown);
         root.addEventListener('pointerdown', event => {
             if (event.target === canvas || event.target === root) root.focus({ preventScroll: true });
@@ -912,10 +929,12 @@
 
         function pageHide(event) {
             pageActive = false;
+            presentation.leave();
             closePhoto(false);
             sync();
             if (event.persisted) return;
             destroyed = true;
+            presentation.destroy();
             gameAudio.destroy();
             visibilityObserver?.disconnect(); sizeObserver?.disconnect(); stateObserver?.disconnect();
             document.removeEventListener('keyup', keyUp);
@@ -1014,6 +1033,221 @@
 
         resize();
         load();
+    }
+
+    function createMobilePresentation(root, stage, callbacks) {
+        const mobile = window.matchMedia('(pointer: coarse), (max-width: 1024px) and (any-pointer: coarse)');
+        const events = new AbortController();
+        const frame = document.createElement('div');
+        frame.className = 'character-game-frame';
+        stage.before(frame);
+        frame.append(stage);
+        const launcher = document.createElement('div');
+        launcher.className = 'character-mobile-launcher';
+        launcher.innerHTML = '<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="13" width="36" height="22" rx="4"/><path d="M12 24h8m-4-4v8m16-6h.01M36 27h.01"/></svg><h3>Play in landscape</h3><p>Turn your phone sideways for the full game.</p><button type="button">Play full screen <span aria-hidden="true">↗</span></button>';
+        const bar = document.createElement('div');
+        bar.className = 'character-mobile-bar';
+        bar.innerHTML = '<button type="button" aria-label="Exit game">Exit game <span aria-hidden="true">×</span></button>';
+        const rotate = document.createElement('div');
+        rotate.className = 'character-mobile-rotate';
+        rotate.setAttribute('role', 'status');
+        rotate.innerHTML = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="23" y="14" width="20" height="36" rx="4"/><path d="M11 30a22 22 0 0 1 39-12m-1-9 2 10-10-1M53 34a22 22 0 0 1-39 12m1 9-2-10 10 1"/></svg><h3>Turn your phone sideways</h3><p>The game is paused until you rotate to landscape.</p>';
+        root.append(launcher, bar, rotate);
+        const playButton = launcher.querySelector('button');
+        const exitButton = bar.querySelector('button');
+        const toolbar = root.querySelector('.contact-character-toolbar');
+        const html = document.documentElement;
+        const role = root.getAttribute('role');
+        let active = false;
+        let landscape = false;
+        let scale = 1;
+        let revision = 0;
+        let nativeFullscreen = false;
+        let nativeExit = null;
+        let orientationLocked = false;
+        let placeholder = null;
+        let background = [];
+        let scrollPosition = null;
+        let layoutFrame = 0;
+        let destroyed = false;
+        const fullscreenElement = () => document.fullscreenElement || document.webkitFullscreenElement;
+
+        function exitNative() {
+            if (fullscreenElement() !== root) return;
+            try {
+                const exit = document.exitFullscreen || document.webkitExitFullscreen;
+                const pending = Promise.resolve(exit?.call(document)).catch(() => {});
+                nativeExit = pending;
+                playButton.disabled = true;
+                pending.finally(() => {
+                    if (nativeExit !== pending) return;
+                    nativeExit = null;
+                    playButton.disabled = false;
+                });
+            } catch { /* The fixed viewport is restored independently of the native API. */ }
+        }
+
+        function update() {
+            if (destroyed) return;
+            launcher.hidden = !mobile.matches || active;
+            root.classList.toggle('is-mobile-mode', mobile.matches);
+            bar.hidden = rotate.hidden = !active;
+            if (!active) {
+                frame.inert = mobile.matches;
+                callbacks.change();
+                return;
+            }
+            const width = root.clientWidth;
+            const height = root.clientHeight;
+            landscape = width > height;
+            root.classList.toggle('is-portrait', !landscape);
+            rotate.hidden = landscape;
+            frame.inert = !landscape;
+            const barStyle = getComputedStyle(bar);
+            const toolbarStyle = getComputedStyle(toolbar);
+            const availableWidth = Math.max(1, width - Math.max(12, parseFloat(barStyle.paddingLeft) || 0)
+                - Math.max(12, parseFloat(barStyle.paddingRight) || 0));
+            const top = bar.offsetHeight + 8;
+            const availableHeight = Math.max(1, height - top - toolbar.offsetHeight
+                - (parseFloat(toolbarStyle.bottom) || 8) - 8);
+            // Keep the exact 1160 x 420 desktop arena. Only its presentation is scaled.
+            scale = Math.min(availableWidth / 1160, availableHeight / 420);
+            root.style.setProperty('--mobile-game-scale', String(scale));
+            frame.style.width = `${1160 * scale}px`;
+            frame.style.height = `${420 * scale}px`;
+            frame.style.left = `${(width - 1160 * scale) / 2}px`;
+            frame.style.top = `${top + (availableHeight - 420 * scale) / 2}px`;
+            callbacks.change();
+        }
+
+        function scheduleLayout() {
+            if (layoutFrame || destroyed) return;
+            layoutFrame = requestAnimationFrame(() => { layoutFrame = 0; update(); });
+        }
+
+        function leave(closeNative = true) {
+            if (!active) return;
+            active = false;
+            ++revision;
+            callbacks.exit();
+            if (orientationLocked) {
+                try { screen.orientation.unlock(); } catch { /* Unlocking is optional. */ }
+                orientationLocked = false;
+            }
+            if (closeNative) exitNative();
+            nativeFullscreen = false;
+            root.classList.remove('is-mobile-session', 'is-portrait');
+            html.classList.remove('character-mobile-open');
+            root.removeAttribute('aria-modal');
+            if (role) root.setAttribute('role', role);
+            else root.removeAttribute('role');
+            background.forEach(({ element, inert }) => { element.inert = inert; });
+            background = [];
+            if (placeholder?.isConnected) placeholder.replaceWith(root);
+            placeholder = null;
+            frame.removeAttribute('style');
+            root.style.removeProperty('--mobile-game-scale');
+            update();
+            if (scrollPosition) {
+                const position = scrollPosition;
+                const ticket = revision;
+                const restoreScroll = () => {
+                    if (active || destroyed || ticket !== revision) return;
+                    window.scrollTo({ left: position.x, top: position.y, behavior: 'instant' });
+                };
+                restoreScroll();
+                // Native fullscreen exit may restore the browser's own earlier scroll position.
+                if (nativeExit) nativeExit.then(restoreScroll);
+                scrollPosition = null;
+            }
+            if (mobile.matches && playButton.isConnected) playButton.focus({ preventScroll: true });
+        }
+
+        async function enter() {
+            if (destroyed || active || nativeExit || !mobile.matches) return;
+            const ticket = ++revision;
+            scrollPosition = { x: window.scrollX, y: window.scrollY };
+            placeholder = document.createComment('Game returns here after leaving fullscreen.');
+            root.before(placeholder);
+            document.body.append(root);
+            background = [...document.body.children].filter(element => element !== root)
+                .map(element => ({ element, inert: element.inert }));
+            background.forEach(({ element }) => { element.inert = true; });
+            active = true;
+            root.classList.add('is-mobile-session');
+            root.setAttribute('role', 'dialog');
+            root.setAttribute('aria-modal', 'true');
+            html.classList.add('character-mobile-open');
+            root.focus({ preventScroll: true });
+            update();
+            // These APIs require a user gesture and are not available in every mobile browser.
+            try {
+                const request = root.requestFullscreen || root.webkitRequestFullscreen;
+                if (request) await request.call(root, { navigationUI: 'hide' });
+            } catch { /* The screen-filling layout and mandatory rotation gate remain usable. */ }
+            if (destroyed || !active || ticket !== revision) {
+                if (!active) exitNative();
+                return;
+            }
+            nativeFullscreen = fullscreenElement() === root;
+            try {
+                if (typeof screen.orientation?.lock === 'function') {
+                    await screen.orientation.lock('landscape');
+                    if (active) orientationLocked = true;
+                    else screen.orientation.unlock();
+                }
+            } catch { /* Unsupported orientation locks use the visible rotation gate. */ }
+            if (active && ticket === revision) update();
+        }
+
+        function fullscreenChanged() {
+            if (!active) return;
+            if (fullscreenElement() === root) nativeFullscreen = true;
+            else if (nativeFullscreen) { leave(false); return; }
+            scheduleLayout();
+        }
+
+        playButton.addEventListener('click', enter, { signal: events.signal });
+        exitButton.addEventListener('click', () => leave(), { signal: events.signal });
+        root.addEventListener('keydown', event => {
+            if (!active || event.defaultPrevented) return;
+            if (event.key === 'Escape' && !root.querySelector('.character-keepsake-dialog[open]')) {
+                event.preventDefault();
+                leave();
+            } else if (event.key === 'Tab') {
+                const focusable = [...root.querySelectorAll('button, a[href], [tabindex="0"]')]
+                    .filter(element => !element.disabled && !element.closest('[inert]')
+                        && element.getClientRects().length && getComputedStyle(element).visibility !== 'hidden');
+                const index = focusable.indexOf(document.activeElement);
+                const next = event.shiftKey ? (index <= 0 ? focusable.at(-1) : focusable[index - 1])
+                    : focusable[(index + 1) % focusable.length];
+                if (next) { event.preventDefault(); next.focus({ preventScroll: true }); }
+            }
+        }, { signal: events.signal });
+        mobile.addEventListener('change', () => {
+            if (!mobile.matches && active) leave();
+            update();
+        }, { signal: events.signal });
+        window.addEventListener('resize', scheduleLayout, { signal: events.signal, passive: true });
+        window.visualViewport?.addEventListener('resize', scheduleLayout, { signal: events.signal, passive: true });
+        document.addEventListener('fullscreenchange', fullscreenChanged, { signal: events.signal });
+        document.addEventListener('webkitfullscreenchange', fullscreenChanged, { signal: events.signal });
+        const controller = {
+            get required() { return mobile.matches; },
+            get active() { return active; },
+            get landscape() { return active && root.clientWidth > root.clientHeight; },
+            get scale() { return active ? scale : 1; },
+            leave,
+            destroy() {
+                leave();
+                destroyed = true;
+                cancelAnimationFrame(layoutFrame);
+                events.abort();
+            }
+        };
+        // Defer the first callback until the game owns this controller.
+        queueMicrotask(update);
+        return controller;
     }
 
     function createGameAudio(root, canPlay) {

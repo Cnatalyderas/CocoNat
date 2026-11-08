@@ -128,13 +128,20 @@
 
     function loadPdf() {
         const pdf = currentPdf();
-        if (pdf && !frame.getAttribute('src')) frame.src = pdf;
+        if (!pdf) return;
+        if (window.portfolioPdfViewer) window.portfolioPdfViewer.prepare(frame, pdf, frame.title).load();
+        else if (!frame.getAttribute('src')) frame.src = pdf;
+    }
+
+    function releasePdf() {
+        if (window.portfolioPdfViewer) window.portfolioPdfViewer.release(frame);
+        else frame.removeAttribute('src');
     }
 
     function updatePdf() {
         const pdf = currentPdf();
         // Release the previous document before changing projects.
-        frame.removeAttribute('src');
+        releasePdf();
         frame.hidden = !pdf;
         emptyDocument.hidden = Boolean(pdf);
         frame.title = `${titleFor(activeId)} — project PDF`;
@@ -144,6 +151,7 @@
             else pdfLink.removeAttribute('href');
         }
         if (pdf) {
+            window.portfolioPdfViewer?.prepare(frame, pdf, frame.title);
             // Let the panel settle before starting a potentially expensive PDF render.
             if (state === 'open') loadPdf();
         }
@@ -217,7 +225,7 @@
             { transform: 'translateY(8px) scale(.99)', opacity: 0 }
         ], { duration: 180, easing: 'cubic-bezier(.4, 0, 1, 1)' });
         if (ticket !== operation) return;
-        frame.removeAttribute('src');
+        releasePdf();
         dialog.close();
         dialog.classList.remove('is-closing');
         html.classList.remove('project-dialog-open');
@@ -342,7 +350,7 @@
         cancelAnimations();
         cards.forEach(resetCard);
         if (event.persisted) return;
-        frame.removeAttribute('src');
+        releasePdf();
     });
     window.addEventListener('pageshow', event => {
         if (event.persisted && dialog.open && activeId) updatePdf();

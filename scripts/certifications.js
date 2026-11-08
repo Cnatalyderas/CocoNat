@@ -43,10 +43,15 @@
         directLink.append('Open PDF ', arrow);
         if (empty) empty.hidden = true;
         stage.append(frame, directLink);
+        window.portfolioPdfViewer?.prepare(frame, url.href, frame.title);
     }
 
     function loadPDF(host) {
         host.querySelectorAll('iframe[data-pdf-source]').forEach(frame => {
+            if (window.portfolioPdfViewer) {
+                window.portfolioPdfViewer.prepare(frame, frame.dataset.pdfSource, frame.title).load();
+                return;
+            }
             if (frame.hasAttribute('src')) return;
             const url = new URL(frame.dataset.pdfSource);
             url.hash = 'page=1&view=FitH&toolbar=0&navpanes=0';
@@ -116,6 +121,7 @@
     }
 
     function renderCertificate(id) {
+        imageHost.querySelectorAll('iframe').forEach(frame => window.portfolioPdfViewer?.release(frame));
         const source = sources.get(id);
         const name = source.querySelector('.certificate-source-title').textContent.trim();
         const gallery = source.querySelector('.certificate-document-set');
@@ -216,6 +222,7 @@
         state = 'closed';
         activeId = null;
         backdropPointerDown = false;
+        imageHost.querySelectorAll('iframe').forEach(frame => window.portfolioPdfViewer?.release(frame));
         imageHost.replaceChildren();
         announceOverlay(false);
         opener?.focus({ preventScroll: true });
